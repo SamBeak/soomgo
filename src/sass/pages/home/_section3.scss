@@ -7,10 +7,7 @@
             width: 100%;
             text-align: left;
             h2{
-                font-size: $h2-text__size;
-                font-weight: 700;
-                color: $main-text__color;
-                margin-bottom: 1.5rem;
+                @include h2_text;
             }
         }
         .content{
