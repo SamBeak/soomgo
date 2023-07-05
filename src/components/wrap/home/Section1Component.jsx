@@ -3,14 +3,16 @@ import axios from 'axios';
 import {Link} from 'react-router-dom';
 
 export default function Section1Component() {
-    const slideWrap = React.useRef();
     
+    // slide animation setting
+    const slideWrap = React.useRef();
     const [cnt, setCnt] = React.useState(0);
     const [state, setState] = React.useState({
         slide: [],
         slideLength: 0
     });
 
+    // get data
     React.useEffect(() => {
         axios({
             url: './data/home/section1.json',
@@ -30,17 +32,19 @@ export default function Section1Component() {
         })
     }, [state]);
 
+    // slide animation
     React.useEffect(() => {
         slideWrap.current.style.width = `${(state.slideLength + 2) * 100}%`;
     }, [state.slideLength]);
 
+    // slide animation
     React.useEffect(() => {
         if(cnt < 0){
             slideWrap.current.style.transition = 'none';
             slideWrap.current.style.transform = `translateX(-${100 / (state.slideLength + 2) * state.slideLength}%)`;
             setCnt(state.slideLength - 1);
         }
-        else if(cnt > state.slideLength){
+        else if(cnt > state.slideLength ){
             slideWrap.current.style.transition = 'none';
             slideWrap.current.style.transform = `translateX(0%)`;
             setCnt(1);
@@ -53,13 +57,35 @@ export default function Section1Component() {
 
 
     // click prev
-    const onClickPrev = () => {
+    const onClickPrev = (e) => {
+        e.preventDefault();
         setCnt(cnt - 1);
-    }
+    };
     // click next
-    const onClickNext = () => {
+    const onClickNext = (e) => {
+        e.preventDefault();
         setCnt(cnt + 1);
-    }
+    };
+
+    // auto slide
+    React.useEffect(() => {
+        const autoSlide = setInterval(() => {
+            if(cnt === state.slideLength){
+                slideWrap.current.style.transition = 'none';
+                slideWrap.current.style.transform = `translateX(0%)`;
+                setCnt(1);
+            }
+            else{
+                setCnt(cnt +1);
+            }
+            console.log('cnt: ', cnt);
+            console.log('state.slideLength: ', state.slideLength);
+        }, 3000);
+        return () => {
+            clearInterval(autoSlide);
+        }
+    }, [cnt, state.slideLength]);
+
  return (
     <section id="section1">
         <div className="container">
