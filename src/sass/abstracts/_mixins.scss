@@ -23,3 +23,10 @@
 @mixin transition {
     transition: all 0.3s ease-in-out;
 }
+// slide btn
+@mixin slide_btn {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 0;
+    border-radius: 50%;
+}

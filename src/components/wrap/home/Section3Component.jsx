@@ -77,28 +77,30 @@ export default function Section3Component() {
                 <h2>숨고 인기 서비스</h2>
             </div>
             <div className="content">
-                <ul className="main-services__wrap" ref={mainServiceWrap}>
-                    {
-                        state.mainServices.map((item, idx) => {
-                            return(
-                                <li className="main-services__item" key={idx}>
-                                    <a href="!#" className="main-services__link">
-                                        <div className="main-services__content">
-                                            <img src={item.imgSrc} alt={item.name} />
-                                        </div>
-                                        <div className="main-services__title">
-                                            <p>{item.name}</p>
-                                        </div>
-                                        <div className="main-services__icon">
-                                            <img src="./images/home/section3/mail.svg" alt="메일 아이콘" />
-                                            <span>{commaFn(item.request)}</span> 명 요청
-                                        </div>
-                                    </a>
-                                </li>
-                            )
-                        })
-                    }
-                </ul>
+                <div className="main-service__box">
+                    <ul className="main-services__wrap" ref={mainServiceWrap}>
+                        {
+                            state.mainServices.map((item, idx) => {
+                                return(
+                                    <li className="main-services__item" key={idx}>
+                                        <a href="!#" className="main-services__link">
+                                            <div className="main-services__content">
+                                                <img src={item.imgSrc} alt={item.name} />
+                                            </div>
+                                            <div className="main-services__title">
+                                                <p>{item.name}</p>
+                                            </div>
+                                            <div className="main-services__icon">
+                                                <img src="./images/home/section3/mail.svg" alt="메일 아이콘" />
+                                                <span>{commaFn(item.request)}</span> 명 요청
+                                            </div>
+                                        </a>
+                                    </li>
+                                )
+                            })
+                        }
+                    </ul>
+                </div>
                 <div className="main-services__btn">
                     <div className="btn__item--prev">
                         <button type='button' className={cnt!==0 ? null : 'hide'} onClick={onClickPrev}><i className="fas fa-chevron-left"></i></button>

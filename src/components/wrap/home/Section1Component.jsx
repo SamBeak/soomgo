@@ -70,7 +70,7 @@ export default function Section1Component() {
     // auto slide
     React.useEffect(() => {
         const autoSlide = setInterval(() => {
-            if(cnt === state.slideLength){
+            if(cnt >= state.slideLength){
                 slideWrap.current.style.transition = 'none';
                 slideWrap.current.style.transform = `translateX(0%)`;
                 setCnt(1);
@@ -78,7 +78,7 @@ export default function Section1Component() {
             else{
                 setCnt(cnt +1);
             }
-        }, 3000);
+        }, 5000);
         return () => {
             clearInterval(autoSlide);
         }

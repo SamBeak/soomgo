@@ -53,9 +53,7 @@
                 top: 7.5rem;
                 left: 1rem;
                 button{
-                    width: 2.5rem;
-                    height: 2.5rem;
-                    border-radius: 50%;
+                    @include slide_btn;
                     background-color: $soomgo-gray2__color;
                 }
             }
@@ -64,9 +62,7 @@
                 top: 7.5rem;
                 right: 1rem;
                 button{
-                    width: 2.5rem;
-                    height: 2.5rem;
-                    border-radius: 50%;
+                    @include slide_btn;
                     background-color: $soomgo-gray2__color;
                 }
             }
