@@ -1,0 +1,93 @@
+#section3{
+    width: 100%;
+    margin-bottom: 5rem;
+    .container{
+        width: 100%;
+        .title{
+            width: 100%;
+            text-align: left;
+            h2{
+                font-size: $h2-text__size;
+                font-weight: 700;
+                color: $main-text__color;
+                margin-bottom: 1.5rem;
+            }
+        }
+        .content{
+            position: relative;
+            width: 100%;
+            .main-services__wrap{
+                width: 100%;
+                display: grid;
+                grid-template-columns: repeat(8, 1fr);
+                column-gap: 0.5rem;
+                .main-services__item{
+                    width: 100%;
+                    // padding: 0 0.5rem;
+                    .main-services__link{
+                        width: 100%;
+                        .main-services__content{
+                            width: 100%;
+                            >img{
+                                width: 100%;
+                                object-fit: cover;
+                                border-radius: 1rem;
+                            }
+                        }
+                        .main-services__title{
+                            >p{
+                                font-size: 1rem;
+                                font-weight: 500;
+                                margin-bottom: 0.25rem;
+                            }
+                        }
+                        .main-services__icon{
+                            font-size: 0.875rem;
+                            color: $sub-text__color;
+                            @include aline_center;
+                            >img{
+                                margin-right: 0.375rem;
+                            }
+                        }
+                    }
+                }
+            }
+            .main-services__btn{
+                .btn__item--prev{
+                    position: absolute;
+                    top: 3.5rem;
+                    left: -1rem;
+                    @include transition;
+                    >button{
+                        width: 2.5rem;
+                        height: 2.5rem;
+                        border: 0;
+                        border-radius: 50%;
+                        background-color: $soomgo-white__color;
+                        i{
+                            font-size: 1.2rem;
+                            color: $soomgo-main__color;
+                        }
+                    }
+                }
+                .btn__item--next{
+                    position: absolute;
+                    top: 3.5rem;
+                    right: -1rem;
+                    @include transition;
+                    >button{
+                        width: 2.5rem;
+                        height: 2.5rem;
+                        border: 0;
+                        border-radius: 50%;
+                        background-color: $soomgo-white__color;
+                        i{
+                            font-size: 1.2rem;
+                            color: $soomgo-main__color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

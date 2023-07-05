@@ -27,6 +27,7 @@ export default function Section2Component() {
     }, [state]);
 
   return (
+    // main-section2 main category
     <section id="section2">
         <div className="container">
             <ul className="main-category__wrap">
