@@ -1,0 +1,17 @@
+#section4{
+    .container{
+        .title{
+            h2{
+                @include h2_text;
+            }
+            >button{
+                >span{
+                    width: 100%;
+                    height: 100%;
+                    background-image: url(../../../../public/images/inform_circle.svg);
+                }
+            }
+        }
+        .content{}
+    }
+}
