@@ -21,7 +21,7 @@ export default function Section1Component() {
                 setState({
                     ...state,
                     slide: res.data.slide,
-                    slideLength: res.data.slide.length
+                    slideLength: res.data.slide.length-2
                 })
             }
         })
@@ -31,18 +31,23 @@ export default function Section1Component() {
     }, [state]);
 
     React.useEffect(() => {
-        slideWrap.current.style.width = `${state.slideLength * 100}%`;
+        slideWrap.current.style.width = `${(state.slideLength + 2) * 100}%`;
     }, [state.slideLength]);
 
     React.useEffect(() => {
         if(cnt < 0){
+            slideWrap.current.style.transition = 'none';
+            slideWrap.current.style.transform = `translateX(-${100 / (state.slideLength + 2) * state.slideLength}%)`;
             setCnt(state.slideLength - 1);
         }
-        else if(cnt > state.slideLength -1){
-            setCnt(0);
+        else if(cnt > state.slideLength){
+            slideWrap.current.style.transition = 'none';
+            slideWrap.current.style.transform = `translateX(0%)`;
+            setCnt(1);
         }
         else{
-            slideWrap.current.style.transform = `translateX(-${cnt * 100 / state.slideLength }%)`;
+            slideWrap.current.style.transition = 'all 0.5s ease-in-out';
+            slideWrap.current.style.transform = `translateX(-${cnt * 100 / (state.slideLength + 2) }%)`;
         }
     }, [cnt, state.slideLength]);
 
@@ -75,7 +80,7 @@ export default function Section1Component() {
             </ul>
             <div className="slide__text">
                 <p>
-                    <span>{cnt+1}/{state.slideLength}</span>
+                    <span>{cnt+1 > state.slideLength ? 1 : cnt+1}/{state.slideLength}</span>
                 </p>
             </div>
             <div className="slide__btn">
