@@ -1,7 +1,5 @@
 #header{
-    grid-area: header;
     height: 4.5rem; // 반응형 min-width 992px ~
-    @include layout_gap;
     @include aline_center;
     .nav-bar__container{
         width: 100%;

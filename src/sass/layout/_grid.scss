@@ -3,6 +3,16 @@
     grid-template-rows: auto 1fr auto;
     grid-template-areas: 
     'header'
-    'main'
+    'home'
     'footer';
+    @include layout_gap;
+}
+#header{
+    grid-area: header;
+}
+#home{
+    grid-area: home;
+}
+#footer{
+    grid-area: footer;
 }
