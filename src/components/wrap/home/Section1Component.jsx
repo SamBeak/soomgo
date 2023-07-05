@@ -78,8 +78,6 @@ export default function Section1Component() {
             else{
                 setCnt(cnt +1);
             }
-            console.log('cnt: ', cnt);
-            console.log('state.slideLength: ', state.slideLength);
         }, 3000);
         return () => {
             clearInterval(autoSlide);
@@ -87,6 +85,7 @@ export default function Section1Component() {
     }, [cnt, state.slideLength]);
 
  return (
+    // main-section1 slide images
     <section id="section1">
         <div className="container">
             <ul className="slide__wrap" ref={slideWrap}>
