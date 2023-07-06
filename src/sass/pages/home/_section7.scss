@@ -1,0 +1,23 @@
+#section7{
+    .container{
+        .title{
+            @include align_center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            h2{
+                @include h2_text;
+            }
+            .show__all{
+                color: $soomgo-main__color;
+                @include align_center;
+                >span{
+                    font-size: 1rem;
+                }
+                >img{
+                    margin-top: 0.125rem;
+                }
+            }
+        }
+        .content{}
+    }
+}
