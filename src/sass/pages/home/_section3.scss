@@ -8,6 +8,7 @@
             text-align: left;
             h2{
                 @include h2_text;
+                margin-bottom: 1.5rem;
             }
         }
         .content{

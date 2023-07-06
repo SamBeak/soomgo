@@ -7,6 +7,7 @@
             @include align_center;
             h2{
                 @include h2_text;
+                margin-bottom: 1.5rem;
             }
             >button{
                 width: 1.25rem;
