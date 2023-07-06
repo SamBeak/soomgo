@@ -33,6 +33,7 @@ export default function Section3Component() {
     // slide wrap width setting
     React.useEffect(() => {
         mainServiceWrap.current.style.width = `${state.mainServicesLength / 4 * 100}%`;
+        mainServiceWrap.current.style.gridTemplateColumns = `repeat(${state.mainServicesLength},1fr)`;
     }, [state.mainServicesLength]);
 
     // slide animation
