@@ -45,7 +45,7 @@
                             .main-services__icon{
                                 font-size: 0.875rem;
                                 color: $sub-text__color;
-                                @include aline_center;
+                                @include align_center;
                                 >img{
                                     margin-right: 0.375rem;
                                 }
