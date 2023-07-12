@@ -50,7 +50,7 @@ const{signinKey,user_email,expires} = signIn;
     }
   
   }
-  },[user_email, expires, signinKey]);
+  },[user_email, expires, signinKey, signIn]);
 
 
 // 모달창
@@ -82,22 +82,22 @@ setModal({
       <GlobalContext.Provider value={{signIn, setSignIn}}>
           <ConfirmContext.Provider value={{confirmModalOpen,confirmModalClose,confirmMsg,isConfirmModal}}>
 
-      <BrowserRouter>
-        <Routes>
-          <Route path='' element={<HeaderComponent />}>
-            <Route index element={<HomeComponent />} />
-            <Route path='/home' element={<HomeComponent />} />
-            <Route path='/request' element={<RequestComponent />} />
-            <Route path='/market' element={<MarketComponent />} />
-            <Route path='/finding' element={<FindingComponent />} />
-            <Route path='/community/*' element={<CommunityComponent />} />
-            <Route path='/login' element={<LoginComponent />} />
-            <Route path='/join' element={<JoinComponent />} />
-            <Route path='/expertJoin' element={<ExpertJoinComponent />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-      <FooterComponent />
+          <BrowserRouter>
+            <Routes>
+              <Route path='' element={<HeaderComponent />}>
+                <Route index element={<HomeComponent />} />
+                <Route path='/home' element={<HomeComponent />} />
+                <Route path='/request' element={<RequestComponent />} />
+                <Route path='/market' element={<MarketComponent />} />
+                <Route path='/finding' element={<FindingComponent />} />
+                <Route path='/community/*' element={<CommunityComponent />} />
+                <Route path='/login' element={<LoginComponent />} />
+                <Route path='/join' element={<JoinComponent />} />
+                <Route path='/expertJoin' element={<ExpertJoinComponent />} />
+              </Route>
+            </Routes>
+          </BrowserRouter>
+          <FooterComponent />
       </ConfirmContext.Provider>
       </GlobalContext.Provider>
     </div>

@@ -2,7 +2,7 @@
     grid-area: header;
     height: 4.5rem; // 반응형 min-width 992px ~
     @include layout_gap;
-    @include aline_center;
+    @include align_center;
     border-bottom:0.0625rem solid #f3f3f3 ;
     .nav-bar__container{
         width: 100%;
@@ -10,7 +10,7 @@
         justify-content: space-between;
         align-items: center;
         .nav-bar__left{
-            @include aline_center;
+            @include align_center;
             .nav-bar__img{
                 margin-right: 1.875rem;
                 a{
@@ -34,7 +34,7 @@
         }
         .nav-bar__center{
             .nav-bar__search{
-                @include aline_center;
+                @include align_center;
                 width: 17.5rem;
                 height: 2.75rem;
                 padding: 0 0.75rem;
