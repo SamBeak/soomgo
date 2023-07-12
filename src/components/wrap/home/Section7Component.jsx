@@ -4,17 +4,20 @@ import axios from 'axios';
 export default function Section7Component() {
   
   const popularProWrap = React.useRef();
+  const [category, setCategory] = React.useState('swim');
   const [cnt, setCnt] = React.useState(0);
   const [state, setState] = React.useState({
     popularPros: [],
     swimPros: [],
     movePros: [],
     wallpaperPros: [],
+    filtertedPros: [],
     
     swimLength: 0,
     moveLength: 0,
     wallpaperLength: 0,
-    cargoLength: 0
+    cargoLength: 0,
+    filteredLength: 0
   });
 
   React.useEffect(() => {
@@ -27,27 +30,30 @@ export default function Section7Component() {
         setState({
           ...state,
           popularPros: res.data.popularPros,
-          swimPros: state.popularPros.filter((item) => item.category === 'swim'),
-          movePros: state.popularPros.filter((item) => item.category === 'move'),
-          wallpaperPros: state.popularPros.filter((item) => item.category === 'wallpaper'),
-          cargoPros: state.popularPros.filter((item) => item.category === 'cargo'),
-          swimLength: state.popularPros.filter((item) => item.category === 'swim').length,
-          moveLength: state.popularPros.filter((item) => item.category === 'move').length,
-          wallpaperLength: state.popularPros.filter((item) => item.category === 'wallpaper').length,
-          cargoLength: state.popularPros.filter((item) => item.category === 'cargo').length
+          filtertedPros: state.popularPros.filter((item) => item.category === category),
+          filteredLength: state.popularPros.filter((item) => item.category === category).length
         });
       }
     })
     .catch((err) => {
       console.log(err);
     });
-  }, [state]);
+  }, [category, state]);
 
   React.useEffect(() => {
-    console.log(state.swimLength); 
-    popularProWrap.current.style.width = `${(state.swimLength+1) / 4 * 100}%`;
-    popularProWrap.current.style.gridTemplateColumns = `repeat(auto-fill, minmax(12.5rem, 1rem))`;
-  }, [state.swimLength]);
+    popularProWrap.current.style.width = `${(state.filteredLength+1) / 4 * 100}%`;
+    popularProWrap.current.style.gridTemplateColumns = `repeat(auto-fit, minmax(${state.filteredLength / 4 * 2}%, 1rem))`;
+  }, [state.filteredLength]);
+
+  // React.useEffect(() => {
+    
+  // }, [cnt]);
+
+  // onClickFilter
+  const onClickFilter = (e) => {
+    e.preventDefault();
+    setCategory(e.target.value);
+  };
 
 
   // btn prev click
@@ -76,17 +82,17 @@ const onClickNext = (e) => {
             </div>
             <div className="content">
               <div className="popular-pro__category">
-                <button className="pro-category__btn on" value="swim">
-                  <span>수영 레슨</span>
+                <button className={category === 'swim' ? "pro-category__btn on" : "pro-category__btn"} onClick={onClickFilter} value="swim">
+                  수영 레슨
                 </button>
-                <button className="pro-category__btn" value="move">
-                  <span>원룸/소형 이사</span>
+                <button className={category === 'move' ? "pro-category__btn on" : "pro-category__btn"} onClick={onClickFilter} value="move">
+                  원룸/소형 이사
                 </button>
-                <button className="pro-category__btn" value="wallpaper">
-                  <span>도배 시공</span>
+                <button className={category === 'wallpaper' ? "pro-category__btn on" : "pro-category__btn"} onClick={onClickFilter} value="wallpaper">
+                  도배 시공
                 </button>
-                <button className="pro-category__btn" value="cargo">
-                  <span>용달/화물 운송</span>
+                <button className={category === 'cargo' ? "pro-category__btn on" : "pro-category__btn"} onClick={onClickFilter} value="cargo">
+                  용달/화물 운송
                 </button>
               </div>
               <div className="popular-pro__container">
@@ -106,13 +112,13 @@ const onClickNext = (e) => {
                       </a>
                     </li>
                     {
-                      state.swimPros.map((item,idx) => {
+                      state.filtertedPros.map((item,idx) => {
                         return(
                           <li className="popular-pro__item" key={idx}>
                             <a href="!#">
                               <div className="popular-pro__header">
                                 <div className="popular-pro__img">
-                                  <img src={item.img} alt="" />
+                                  <img src={item.img} alt="고수 프로필사진" />
                                 </div>
                                 <div className="popular-pro__desc">
                                   <img src="./images/star_icon.svg" alt="별점" />
