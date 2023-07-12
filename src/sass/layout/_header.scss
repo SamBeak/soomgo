@@ -3,6 +3,7 @@
     height: 4.5rem; // 반응형 min-width 992px ~
     @include layout_gap;
     @include aline_center;
+    border-bottom:0.0625rem solid #f3f3f3 ;
     .nav-bar__container{
         width: 100%;
         display: flex;

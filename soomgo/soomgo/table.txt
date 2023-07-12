@@ -1,0 +1,23 @@
+create table community(
+    idx int  auto_increment primary key ,
+    userId   VARCHAR(16) NOT NULL,
+    subject  VARCHAR(30) NOT NULL,
+    content VARCHAR(4096) NOT NULL,
+    writeDate DATETIME,
+    deleteOk int,
+    PRIMARY KEY(bbsId)
+);
+
+
+
+create table photo_post(
+    idx     int     auto_increment primary key,
+     user_email      varchar(100)    NOT NULL,
+    pyeong  varchar(100) not null,
+    type    varchar(100) not null,
+    style   varchar(100) not null,
+    file    longblob not null,
+    place   varchar(100) not null,
+    memo    varchar(500) not null,
+    write_date timestamp default current_timestamp
+);

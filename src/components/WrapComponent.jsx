@@ -26,10 +26,12 @@ export default function WrapComponent() {
             <Route path='/request' element={<RequestComponent />} />
             <Route path='/market' element={<MarketComponent />} />
             <Route path='/finding' element={<FindingComponent />} />
-            <Route path='/community' element={<CommunityComponent />} />
+            <Route path='/community/*' element={<CommunityComponent />} />
             <Route path='/login' element={<LoginComponent />} />
             <Route path='/join' element={<JoinComponent />} />
             <Route path='/expertJoin' element={<ExpertJoinComponent />} />
+           
+            
           </Route>
         </Routes>
       </BrowserRouter>

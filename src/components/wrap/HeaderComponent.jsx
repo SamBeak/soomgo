@@ -61,7 +61,7 @@ export default function HeaderComponent() {
             <Link to="/home"><img src="./images/header/icon-navi-logo.svg" alt="숨고 로고" /></Link>
           </div>
           <ul className="nav-bar__list">
-            <li><Link to="/request">서비스요청</Link></li>
+            <li><Link to="/request">견적요청</Link></li>
             <li><Link to="/finding">고수찾기</Link></li>
             <li><Link to="/market">마켓</Link></li>
             <li><Link to="/community">커뮤니티</Link></li>
