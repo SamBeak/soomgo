@@ -3,8 +3,13 @@ import $, { css } from 'jquery';
 import axios from 'axios';
 import { useSearchParams } from 'react-router-dom';
 import './scss/c_updata.scss';
+import { ConfirmContext } from '../../context/ConfirmContext';
+import { GlobalContext } from '../../context/GlobalContext';
 
 export default function ComUpdateComponent(){
+    const {confirmModalOpen,confirmModalClose,confirmMsg,isConfirmModal} = React.useContext(ConfirmContext);
+    const {signIn, setSignIn} = React.useContext(GlobalContext);
+
     const [list,setList] =React.useState({
         idx:'',
         update:[],

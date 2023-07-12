@@ -4,10 +4,16 @@ import $ from 'jquery';
 import axios from 'axios';
 import { json, useParams } from 'react-router-dom';
 import { useState } from 'react';
+import { ConfirmContext } from '../../context/ConfirmContext';
+import { GlobalContext } from '../../context/GlobalContext';
+
 export default  function ComViewListComponent(){
+    const {confirmModalOpen,confirmModalClose,confirmMsg,isConfirmModal} = React.useContext(ConfirmContext);
+    const {signIn, setSignIn} = React.useContext(GlobalContext);
     const [state,setState]=React.useState({
         listData:[],
         viewList:[],
+        user_email:''
       
     })
     const [data, setData] = useState({
@@ -28,6 +34,19 @@ export default  function ComViewListComponent(){
             })
         }
     },[]);
+
+    // React.useEffect(()=>{
+    //     if(localStorage.getItem(signIn.user_email!=='')){
+    //         let result = JSON.parse(localStorage.getItem(signIn.signinKey));
+    //         setState({
+    //             ...state,
+    //             user_email:  
+    //         })
+    //         console.log(state.user_email);
+    //     }
+   
+
+    // },[signIn])
 
     const getList= async()=>{
         try {
@@ -77,23 +96,29 @@ export default  function ComViewListComponent(){
     const onClickDelete=(e)=>{
         e.preventDefault();
         console.log(view.idx);
-        let formData = new URLSearchParams();
-        formData.append("idx", view.idx)
-        axios({
-            url:'/JSP/deleteAction.jsp',
-            method:'POST',  
-            data:{},
-            params:formData
-        })
-        .then((res)=>{
-            console.log('AJAX 성공');
-            console.log(res);
-            alert('삭제되었습니다');
-            window.location.href='/community'
-        })
-        .catch((err)=>{
-            console.log('AJAX 실패'+err);
-        })  
+
+        if(signIn.user_email!==''){
+            let formData = new URLSearchParams();
+            formData.append("idx", view.idx)
+            axios({
+                url:'/JSP/deleteAction.jsp',
+                method:'POST',  
+                data:{},
+                params:formData
+            })
+            .then((res)=>{
+                console.log('AJAX 성공');
+                console.log(res);
+                alert('삭제되었습니다');
+                window.location.href='/community'
+            })
+            .catch((err)=>{
+                console.log('AJAX 실패'+err);
+            })  
+        }
+       else{
+        alert('본인만 삭제가능합니다.');
+       }
         
     }
 
@@ -135,7 +160,7 @@ export default  function ComViewListComponent(){
                             <img className='userimg' style={(view.file1==='undefined' ? {display:'none'}:{} )} src={view.file1} alt="" />
                         </div>
                         <div className="info" style={(view.file1==='undefined' ? {marginLeft:'-12px'}:{} )}>
-                            <h5>효비니</h5>
+                            <h5>{signIn.user_email}</h5>
                             <h4 >{view.writeDate}</h4>  
                         </div>
                     </div>

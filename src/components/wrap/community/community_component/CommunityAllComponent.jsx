@@ -4,8 +4,14 @@ import $ from 'jquery';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useEffect } from 'react';
+import { ConfirmContext } from '../../context/ConfirmContext';
+import { GlobalContext } from '../../context/GlobalContext';
 
 export default  function CommunityAllComponent(){
+    const {confirmModalOpen,confirmModalClose,confirmMsg,isConfirmModal} = React.useContext(ConfirmContext);
+    const {signIn, setSignIn} = React.useContext(GlobalContext);
+
+
     const [state,setState]=React.useState({
         listData:[],
         test:{}

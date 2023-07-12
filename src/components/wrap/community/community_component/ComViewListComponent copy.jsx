@@ -4,7 +4,12 @@ import $ from 'jquery';
 import axios from 'axios';
 import { json, useParams } from 'react-router-dom';
 import { useState } from 'react';
+import { ConfirmContext } from '../../context/ConfirmContext';
+import { GlobalContext } from '../../context/GlobalContext';
+
 export default  function ComViewListComponent(){
+    const {confirmModalOpen,confirmModalClose,confirmMsg,isConfirmModal} = React.useContext(ConfirmContext);
+    const {signIn, setSignIn} = React.useContext(GlobalContext);
     const [state,setState]=React.useState({
         listData:[],
         viewList:[],
@@ -12,8 +17,9 @@ export default  function ComViewListComponent(){
     })
     const [data, setData] = useState({
         view:{}
+       
     });
-    const {view}=data;
+    const {view,updata}=data;
     const {id} = useParams();
     
     const {listData}=state;
@@ -21,13 +27,10 @@ export default  function ComViewListComponent(){
     React.useEffect(()=>{
         if (localStorage.getItem('COMMUNITY') !== null) {
             let result = JSON.parse(localStorage.getItem('COMMUNITY'));
-
             setData({
                 ...data,
                 view: result[0]
             })
-           
-            
         }
     },[]);
 
@@ -69,12 +72,17 @@ export default  function ComViewListComponent(){
 
     const onClickUpdate=(e)=>{
         e.preventDefault();
+        window.location.href='/community/update';
+
+
+
     }
 
 
     const onClickDelete=(e)=>{
         e.preventDefault();
         console.log(view.idx);
+
         let formData = new URLSearchParams();
         formData.append("idx", view.idx)
         axios({
@@ -87,7 +95,7 @@ export default  function ComViewListComponent(){
             console.log('AJAX 성공');
             console.log(res);
             alert('삭제되었습니다');
-            window.location.href='view'
+            window.location.href='/community'
         })
         .catch((err)=>{
             console.log('AJAX 실패'+err);
@@ -133,7 +141,7 @@ export default  function ComViewListComponent(){
                             <img className='userimg' style={(view.file1==='undefined' ? {display:'none'}:{} )} src={view.file1} alt="" />
                         </div>
                         <div className="info" style={(view.file1==='undefined' ? {marginLeft:'-12px'}:{} )}>
-                            <h5>효비니</h5>
+                            <h5>{signIn.user_email}</h5>
                             <h4 >{view.writeDate}</h4>  
                         </div>
                     </div>

@@ -2,12 +2,26 @@ import React from 'react';
 import CommunityAllComponent from './CommunityAllComponent';
 import './scss/c_header.scss';
 import { Link } from 'react-router-dom';
+import { ConfirmContext } from '../../context/ConfirmContext';
+import { GlobalContext } from '../../context/GlobalContext';
+
 export default function CommunityHeaderComponent(){
+
+    const {confirmModalOpen,confirmModalClose,confirmMsg,isConfirmModal} = React.useContext(ConfirmContext);
+    const {signIn, setSignIn} = React.useContext(GlobalContext);
+
     const [isNav,setIsNav]=React.useState(false);
 
     const onClickWrite=(e)=>{
         e.preventDefault();
-        window.location.pathname='community/write';
+        if(localStorage.getItem(signIn.user_email)===''){
+            confirmModalOpen('회원가입 후 작성해주세요.');
+            console.log(signIn.user_email)
+        }
+        else{
+            window.location.pathname='community/write';
+            
+        }   
     }
 
 
