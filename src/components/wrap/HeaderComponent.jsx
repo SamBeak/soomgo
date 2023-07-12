@@ -80,7 +80,7 @@ export default function HeaderComponent() {
       <nav className="nav-bar__container">
         <div className="nav-bar__left">
           <div className="nav-bar__img">
-            <Link to="/home"><img src="./images/header/icon-navi-logo.svg" alt="숨고 로고" /></Link>
+            <Link to="/home"><img src="/images/header/icon-navi-logo.svg" alt="숨고 로고" /></Link>
           </div>
           <ul className="nav-bar__list">
             <li><Link to="/request">견적요청</Link></li>
@@ -93,11 +93,11 @@ export default function HeaderComponent() {
         <div className="nav-bar__center">
           <form action="" className={state.isSearch ? 'nav-bar__search on' : 'nav-bar__search'}>
             <div className="nav-bar__icon">
-              <img src="./images/header/icon-navi-search.svg" alt="검색 아이콘" />
+              <img src="/images/header/icon-navi-search.svg" alt="검색 아이콘" />
             </div>
             <input type="text" className='nav-bar__input' placeholder='어떤 서비스가 필요하세요?' autoComplete='off' onFocus={onFocusInput} onBlur={onBlurInput} onChange={onChangeInput} value={state.searchMsg}/>
             <div className={state.isSearch ? 'nav-bar__btn' : 'nav-bar__btn hide'}>
-              <img src="./images/header/icon-navi-close.svg" alt="닫기 버튼" onClick={onClickDeleteSearchMsg}/>
+              <img src="/images/header/icon-navi-close.svg" alt="닫기 버튼" onClick={onClickDeleteSearchMsg}/>
             </div>
           </form>
           <div className="nav-bar__suggest hide">

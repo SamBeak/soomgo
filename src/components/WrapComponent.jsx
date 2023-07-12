@@ -82,14 +82,14 @@ setModal({
       <GlobalContext.Provider value={{signIn, setSignIn}}>
           <ConfirmContext.Provider value={{confirmModalOpen,confirmModalClose,confirmMsg,isConfirmModal}}>
 
-          <BrowserRouter>
+          <BrowserRouter basename={process.env.PUBLIC_URL}>
             <Routes>
               <Route path='' element={<HeaderComponent />}>
                 <Route index element={<HomeComponent />} />
                 <Route path='/home' element={<HomeComponent />} />
                 <Route path='/request' element={<RequestComponent />} />
                 <Route path='/market' element={<MarketComponent />} />
-                <Route path='/finding' element={<FindingComponent />} />
+                <Route path='/finding/*' element={<FindingComponent />} />
                 <Route path='/community/*' element={<CommunityComponent />} />
                 <Route path='/login' element={<LoginComponent />} />
                 <Route path='/join' element={<JoinComponent />} />
