@@ -1,8 +1,12 @@
 import React from 'react'
 import { Link, Outlet } from 'react-router-dom'
-
+import { GlobalContext } from '../wrap/context/GlobalContext'
+import { ConfirmContext } from '../wrap/context/ConfirmContext'
 export default function HeaderComponent() {
-  
+
+  const {signIn,setSignIn} = React.useContext(GlobalContext);
+  const {confirmModalOpen,confirmModalClose,confirmMsg,isConfirmModal} = React.useContext(ConfirmContext);
+
   const [ state, setState ] = React.useState({
     isSearch: false,
     searchMsg: ''
@@ -51,6 +55,24 @@ export default function HeaderComponent() {
       searchMsg: ''
     })
   }
+  React.useEffect(()=>{
+    console.log(localStorage.getItem(signIn));
+  },[])
+
+  const onClickSignOut=(e)=>{
+    e.preventDefault();
+    localStorage.removeItem(signIn.signinKey); // 로그인 정보 모두 삭제
+
+    setSignIn({
+        ...signIn,
+        user_email:'',
+        expires:''
+    })
+    
+    confirmModalOpen('로그아웃 되었습니다.');
+ 
+    
+}
   
   return (
     <>
@@ -61,7 +83,7 @@ export default function HeaderComponent() {
             <Link to="/home"><img src="./images/header/icon-navi-logo.svg" alt="숨고 로고" /></Link>
           </div>
           <ul className="nav-bar__list">
-            <li><Link to="/request">서비스요청</Link></li>
+            <li><Link to="/request">견적요청</Link></li>
             <li><Link to="/finding">고수찾기</Link></li>
             <li><Link to="/market">마켓</Link></li>
             <li><Link to="/community">커뮤니티</Link></li>
@@ -98,7 +120,12 @@ export default function HeaderComponent() {
         </div>
         <div className="nav-bar__right">
           <ul className="nav-bar__user">
-            <li><Link to="/login">로그인</Link></li>
+            {
+              signIn.user_email === '' ?
+              ( <li><Link to="/login">로그인</Link></li>)
+              :
+              (<li><Link to="/main" onClick={onClickSignOut}> 로그아웃</Link></li>)
+            }
             <li><Link to="/join">회원가입</Link></li>
           </ul>
           <Link to="/expertJoin"><button className='nav-join__button' type='button'>고수가입</button></Link>
