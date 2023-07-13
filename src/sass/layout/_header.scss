@@ -95,6 +95,10 @@
                     &:not(:first-child){
                         margin-left: 1rem;
                     }
+                    button{
+                        background: #fff;
+                        color: #222;
+                    }
                 }
             }
             >a{
