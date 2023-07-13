@@ -8,18 +8,11 @@ export default function Section7Component() {
   const [cnt, setCnt] = React.useState(0);
   const [state, setState] = React.useState({
     popularPros: [],
-    swimPros: [],
-    movePros: [],
-    wallpaperPros: [],
     filtertedPros: [],
-    
-    swimLength: 0,
-    moveLength: 0,
-    wallpaperLength: 0,
-    cargoLength: 0,
     filteredLength: 0
   });
 
+  // get data
   React.useEffect(() => {
     axios({
       url: './data/home/section7.json',
@@ -45,14 +38,25 @@ export default function Section7Component() {
     popularProWrap.current.style.gridTemplateColumns = `repeat(auto-fit, minmax(${state.filteredLength / 4 * 2}%, 1rem))`;
   }, [state.filteredLength]);
 
-  // React.useEffect(() => {
-    
-  // }, [cnt]);
+  // slide animation
+  React.useEffect(() => {
+    if(cnt < 0){
+      setCnt(0);
+    }
+    else if(cnt > state.filteredLength / 4){
+      setCnt(state.filteredLength / 4);
+    }
+    else{
+      popularProWrap.current.style.transition = `all 0.3s ease-in-out`;
+      popularProWrap.current.style.transform = `translateX(${-cnt * 100 / 8}%)`;
+    }
+  }, [cnt, state.filteredLength]);
 
   // onClickFilter
   const onClickFilter = (e) => {
     e.preventDefault();
     setCategory(e.target.value);
+    setCnt(0);
   };
 
 
@@ -60,13 +64,11 @@ export default function Section7Component() {
   const onClickPrev = (e) => {
     e.preventDefault();
     setCnt(cnt - 1);
-    console.log(cnt);
 };
 // btn next click
 const onClickNext = (e) => {
     e.preventDefault();
     setCnt(cnt + 1);
-    console.log(cnt);
 };
 
 
@@ -102,7 +104,7 @@ const onClickNext = (e) => {
                       <a href="!#">
                         <img src="./images/pro_icon.svg" alt="고수 만나보기 아이콘" />
                         <p className="meet-pro__num">
-                          <span className="meet-pro__total">1300명</span>
+                          <span className="meet-pro__total">{state.filteredLength}명</span>
                           <span className="meet-pro__text">의</span>
                         </p>
                         <div className="meet-pro__subtext">
@@ -148,7 +150,7 @@ const onClickNext = (e) => {
                         <button type='button' onClick={onClickPrev} className={cnt !== 0 ? null : 'hide'}><i className="fas fa-chevron-left"></i></button>
                     </div>
                     <div className="btn__item--next">
-                        <button type='button' onClick={onClickNext} className={cnt !== state.portfoliosLength/4 ? null : 'hide'}><i className="fas fa-chevron-right"></i></button>
+                        <button type='button' onClick={onClickNext} className={cnt !== state.filteredLength/4 ? null : 'hide'}><i className="fas fa-chevron-right"></i></button>
                     </div>
                 </div>
               </div>
