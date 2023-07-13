@@ -2831,3 +2831,17 @@ button {
   font-size: 1.2rem;
   color: #00c7ae;
 }
+
+#section14 .container .content .location__wrap {
+  display: grid;
+}
+#section14 .container .content .location__wrap .location__item {
+  padding: 0 1rem 1.5rem 0;
+}
+#section14 .container .content .location__wrap .location__item .location__link {
+  background-color: #eafaf9;
+  color: #00c7ae;
+  text-align: center;
+  font-size: 0.875rem;
+  border-radius: 2.25rem;
+}
