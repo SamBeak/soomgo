@@ -2748,3 +2748,86 @@ button {
   background: url(../../../../public/images/home/main-banner.webp) no-repeat center center;
   background-size: cover;
 }
+
+#section9 .container {
+  margin-bottom: 5rem;
+}
+#section9 .container .title {
+  width: 100%;
+  text-align: left;
+}
+#section9 .container .title h2 {
+  font-size: 1.5rem;
+  color: #323232;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+#section9 .container .slide__container {
+  width: 100%;
+  position: relative;
+}
+#section9 .container .slide__container .slide__gap {
+  width: 100%;
+  overflow: hidden;
+}
+#section9 .container .slide__container .slide__gap .slide__wrap {
+  display: grid;
+  -moz-column-gap: 0.5rem;
+       column-gap: 0.5rem;
+}
+#section9 .container .slide__container .slide__gap .slide__wrap .slide__item {
+  width: 100%;
+}
+#section9 .container .slide__container .slide__gap .slide__wrap .slide__item .slide__link {
+  width: 100%;
+  display: block;
+}
+#section9 .container .slide__container .slide__gap .slide__wrap .slide__item .slide__link .slide__img {
+  width: 100%;
+}
+#section9 .container .slide__container .slide__gap .slide__wrap .slide__item .slide__link .slide__img > img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#section9 .container .slide__container .slide__gap .slide__wrap .slide__item .slide__link .slide__text {
+  text-align: left;
+}
+#section9 .container .slide__container .slide__gap .slide__wrap .slide__item .slide__link .slide__text p {
+  font-size: 1rem;
+  font-weight: 500;
+}
+#section9 .container .slide__container .slide-btn__wrap .btn__item--prev {
+  position: absolute;
+  top: 40%;
+  left: -1rem;
+  transform: translateY(-50%);
+}
+#section9 .container .slide__container .slide-btn__wrap .btn__item--prev button {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 0;
+  border-radius: 50%;
+  background-color: #fff;
+}
+#section9 .container .slide__container .slide-btn__wrap .btn__item--prev button i {
+  font-size: 1.2rem;
+  color: #00c7ae;
+}
+#section9 .container .slide__container .slide-btn__wrap .btn__item--next {
+  position: absolute;
+  top: 40%;
+  right: -1rem;
+  transform: translateY(-50%);
+}
+#section9 .container .slide__container .slide-btn__wrap .btn__item--next button {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 0;
+  border-radius: 50%;
+  background-color: #fff;
+}
+#section9 .container .slide__container .slide-btn__wrap .btn__item--next button i {
+  font-size: 1.2rem;
+  color: #00c7ae;
+}

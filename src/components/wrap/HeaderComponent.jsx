@@ -55,9 +55,6 @@ export default function HeaderComponent() {
       searchMsg: ''
     })
   }
-  React.useEffect(()=>{
-    console.log(localStorage.getItem(signIn));
-  },[])
 
   const onClickSignOut=(e)=>{
     e.preventDefault();

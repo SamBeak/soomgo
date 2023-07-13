@@ -44,7 +44,6 @@ export default function Section6Component() {
             setCnt(state.portfoliosLength / 4);
         }
         else{
-            console.log(cnt);
             portfolioWrap.current.style.transition = `all 0.3s ease-in-out`;
             portfolioWrap.current.style.transform = `translateX(${-cnt * 100 / 4}%)`;
         }
@@ -60,7 +59,6 @@ export default function Section6Component() {
     const onClickNext = (e) => {
         e.preventDefault();
         setCnt(cnt + 1);
-        console.log(cnt);
     };
 
   return (
