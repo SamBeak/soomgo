@@ -108,7 +108,7 @@ const onClickLog=(e)=>{
               toDay.setDate(toDay.getDate()+3); // 로그인 3일 후 로그아웃 시간은 setHour getHour
               const obj = {
                   user_email:state.email,
-                  expires: new Date().getTime()
+                  expires: toDay.getTime()
               }
               localStorage.setItem('SOOMGOUSERLOGIN',JSON.stringify(obj));
               navigate('/home'); 

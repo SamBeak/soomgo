@@ -31,7 +31,7 @@ export default function JoinComponent({join}) {
       // 이름 입력상자  onChange  이벤트
       const onChangeUserName=(e)=>{
         const {value}=e.target;
-        const regExp1 = /^(.){2,}$/g; 
+        // const regExp1 = /^(.){2,}$/g; 
 
         let isNameError = false;
         let isNameMsg = '';
@@ -40,10 +40,10 @@ export default function JoinComponent({join}) {
           isNameError=true;
           isNameMsg='이름을 입력해 주세요.';
         }
-        else if(regExp1.test(value===false)){
-          isNameError=true;
-          isNameMsg='최소 2자 이상 입력해주세요.';
-        }
+        // else if(regExp1.test(value===false){
+        //   isNameError=true;
+        //   isNameMsg='최소 2자 이상 입력해주세요.';
+        // }
         else{
           isNameError=false;
           isNameMsg='';
@@ -80,7 +80,7 @@ export default function JoinComponent({join}) {
       //     method: 'POST',
       //     data:{},
       //     params: {
-      //         "user_email": state.이메일
+      //         "user_email": state.email
       //     }
       // })
       // .then((res)=>{
@@ -91,14 +91,14 @@ export default function JoinComponent({join}) {
       //         if( res.data === true ){ // true 이면 중복된것임.                   
       //             setState({
       //                 ...state,
-      //                 isIdOk: false
+      //                 isEmailOk: false
       //             })
       //             confirmModalOpen('사용 불가능한 이메일 입니다.');
       //         }
       //         else{
       //             setState({
       //                 ...state,
-      //                 isIdOk: true
+      //                 isEmailOk: true
       //             })
       //             confirmModalOpen('사용 가능한 이메일 입니다.');
       //         }
@@ -250,7 +250,6 @@ const onSubmitSignupEvent=(e)=>{
     })
     .then((res)=>{
       confirmModalOpen('회원가입에 성공하였습니다!');
-      window.location.href='/login';
     })
     .catch((err)=>{
         console.log( 'AXIOS 실패!' + err );
@@ -420,6 +419,10 @@ JoinComponent.defaultProps = {
     agree : [],
 
     isAgreeError:false,
-    isAgreeMsg:''
+    isAgreeMsg:'',
+
+    isEmailOk:false
+
+    
   }
 }

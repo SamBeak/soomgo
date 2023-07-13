@@ -1,6 +1,42 @@
 import React from 'react'
 
 export default function ExpertJoinComponent() {
+
+  const slideWrap = React.useRef();
+  const [cnt, setCnt] = React.useState(0);
+  const [state, setState] = React.useState();
+
+
+// slide animation
+React.useEffect(() => {
+    if(cnt < 0){
+        slideWrap.current.style.transition = 'none';
+        slideWrap.current.style.transform = `translateX(-100%)`;
+        setCnt( - 1);
+    }
+    else if(cnt > 1 ){
+        slideWrap.current.style.transition = 'none';
+        slideWrap.current.style.transform = `translateX(0%)`;
+        setCnt(1);
+    }
+    else{
+        slideWrap.current.style.transition = 'all 0.5s ease-in-out';
+        slideWrap.current.style.transform = `translateX(* 100 %)`;
+    }
+}, [cnt]);
+
+
+// click prev
+const onClickPrev = (e) => {
+    e.preventDefault();
+    setCnt(cnt - 1);
+};
+// click next
+const onClickNext = (e) => {
+    e.preventDefault();
+    setCnt(cnt + 1);
+};
+
   return (
     <div id="expertJoin">
         <div className="container">
@@ -166,14 +202,130 @@ export default function ExpertJoinComponent() {
                 <div className="row2">
                     <div className="slide-contianer">
                       <div className="slide-view">
-                        <ul className="slide-wrap">
-                          <li className="slide slide01"></li>
-                          <li className="slide slide02"></li>
-                          <li className="slide slide03"></li>
-                          <li className="slide slide04"></li>
+                        <ul ref={slideWrap} className="slide-wrap">
+                          <li className="slide slide01">
+                            <a href="">
+                            <div className="content-box">
+                              <div className="left">
+                                <img src="./images/gosu/8730-10.jpg" alt="" />
+                                <h2>드럼레슨</h2>
+                                <h3>김정욱</h3>
+                              </div>
+                              <div className="right">
+                                <p>예전에 학원에서는 수수료 50%를 떼이는 게 너무 억울했었는데 숨고는 합리적이라 생각해요! 현재 37명 레<br />슨 중인데, 그 중 대부분이 숨고로 알게 된 분들이에요. 주위 여러 친구들한테 숨고를 추천했어요.</p>
+                                <button>더보기</button>
+                              </div>
+                            </div>
+                            </a>
+                          </li>
+                          <li className="slide slide02">
+                            <a href="">
+                          <div className="content-box">
+                              <div className="left">
+                                <img src="./images/gosu/3781-144.jpg" alt="" />
+                                <h2>천연비누/화장품 레슨</h2>
+                                <h3>최윤선</h3>
+                              </div>
+                              <div className="right">
+                                <p>예전에 학원에서는 수수료 50%를 떼이는 게 너무 억울했었는데 숨고는 합리적이라 생각해요! 현재 37명 레슨 중인데, 그 중 대부분이 숨고로 알게 된 분들이에요. 주위 여러 친구들한테 숨고를 추천했어요.</p>
+                                <button>더보기</button>
+                              </div>
+                            </div>
+                            </a>
+                          </li>
+                          <li className="slide slide03">
+                            <a href="">
+                          <div className="content-box">
+                              <div className="left">
+                                <img src="./images/gosu/70079-795.jpg" alt="" />
+                                <h2>피부관리</h2>
+                                <h3>신재오</h3>
+                              </div>
+                              <div className="right">
+                                <p>저희 에스테틱 한달 평균 고객이 300명 정도 되는데, 숨고를 시작하면서 한 달에 10~15분이 더 늘었어요. 숨고로 방문하신 10분 중 7~8분은 회원으로 전환돼요. 실질적 수요자들이 많으신 것 같아요.</p>
+                                <button>더보기</button>
+                              </div>
+                            </div>
+                            </a>
+                          </li>
+                          <li className="slide slide04">
+                            <a href="">
+                          <div className="content-box">
+                              <div className="left">
+                                <img src="./images/gosu/7138-437.jpg" alt="" />
+                                <h2>바느질/재봉틀 레슨</h2>
+                                <h3>박현주</h3>
+                              </div>
+                              <div className="right">
+                                <p>처음 숨고 시작했을 때보다 요청 양이 많이 늘어난 것 같아요. 계속 이렇게 숨고가 번창해서 요청이 늘어난다면 회사를 그만두고 이 쪽에 전념해야 하나 고민될 정도에요!</p>
+                                <button>더보기</button>
+                              </div>
+                            </div>
+                            </a>
+                          </li>
                         </ul>
                       </div>
                     </div>
+                    {/* <div className="button-box">
+                    <a href="!#" className='prev-btn' onClick={onClickPrev}><img src="./images/gosu/arrow_left.svg" alt="" /></a>
+                    <li><button></button></li>
+                    <li><button></button></li>
+                    <li><button></button></li>
+                    <li><button></button></li>
+                    <a href="!#" className='next-btn' onClick={onClickNext}><img src="./images/gosu/arrow_right.svg" alt="" /></a>
+                    </div> */}
+                </div>
+              </div>
+              <div className="section6">
+                <div className="row1">
+                  <h2>고수 성공 스토리</h2>
+                  <h3>숨고를 통해 성공한 고수의 스토리를 들어보세요.</h3>
+                </div>
+                <div className="row2">
+                  <div className="content-box">
+                    <a href="!#">
+                    <div className="content1">
+                      <span><img src="./images/gosu/clip_img_04.jpg" alt="" /></span>
+                      <img src="./images/gosu/btn_clip_play.jpg" alt="" />
+                      <div className="txt-box">
+                      <h2>포토그래퍼</h2>
+                      <h3>강휘원 고수</h3>
+                      </div>
+                      </div>
+                      <div className="content2">
+                      <span><img src="./images/gosu/clip_img_05.jpg" alt="" /></span>
+                      <img src="./images/gosu/btn_clip_play.jpg" alt="" />
+                      <div className="txt-box">
+                      <h2>이사</h2>
+                      <h3>박환준 고수</h3>
+                      </div>
+                      </div>
+                      <div className="content3">
+                      <span><img src="./images/gosu/clip_img_06.jpg" alt="" /></span>
+                      <img src="./images/gosu/btn_clip_play.jpg" alt="" />
+                      <div className="txt-box">
+                      <h2>웨딩플래너</h2>
+                      <h3>이성희 고수</h3>
+                      </div>
+                      </div>
+                      <div className="content4">
+                      <span><img src="./images/gosu/clip_img_07.jpg" alt="" /></span>
+                      <img src="./images/gosu/btn_clip_play.jpg" alt="" />
+                      <div className="txt-box">
+                      <h2>청소도우미</h2>
+                      <h3>이은혜 고수</h3>
+                      </div>
+                      </div>
+                      <div className="content5">
+                      <span><img src="./images/gosu/clip_img_09.jpg" alt="" /></span>
+                      <img src="./images/gosu/btn_clip_play.jpg" alt="" />
+                      <div className="txt-box">
+                      <h2>피아니스트</h2>
+                      <h3>윤다정 고수</h3>
+                      </div>
+                      </div>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
