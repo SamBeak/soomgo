@@ -11,7 +11,7 @@
 // 페이지 레이아웃
 @import 'layout/grid';
 @import 'layout/header';
-@import 'layout/main';
+@import 'layout/home';
 @import 'layout/footer';
 @import 'layout/forms';
 @import 'layout/navigation';
@@ -23,7 +23,6 @@
 @import 'components/media';
 
 // 페이지 고유의 스타일
-@import 'pages/home';
 @import 'pages/request';
 @import 'pages/finding';
 @import 'pages/market';
@@ -31,6 +30,14 @@
 @import 'pages/login';
 @import 'pages/join';
 @import 'pages/expertJoin';
+// 페이지 홈 고유의 스타일
+@import 'pages/home/section1';
+@import 'pages/home/section2';
+@import 'pages/home/section3';
+@import 'pages/home/section4';
+@import 'pages/home/section5';
+@import 'pages/home/section6';
+@import 'pages/home/section7';
 
 // 외부 라이브러리 및 프레임워크
 @import 'vendors/bootstrap';
