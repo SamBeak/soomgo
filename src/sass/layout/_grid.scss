@@ -1,7 +1,7 @@
 #wrap{
     display: grid;
     grid-template-rows: auto 1fr auto;
-    grid-template-areas: 
+    grid-template-areas:
     'header'
     'home'
     'footer';
