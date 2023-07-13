@@ -1,18 +1,22 @@
 import React from 'react'
-import { Link, Outlet, useLocation } from 'react-router-dom'
-import { GlobalContext } from './context/GlobalContext';
-import { ConfirmContext } from './context/ConfirmContext';
-
+import { Link, Outlet } from 'react-router-dom'
+import { GlobalContext } from '../wrap/context/GlobalContext'
+import { ConfirmContext } from '../wrap/context/ConfirmContext'
 export default function HeaderComponent() {
-  const {signIn, setSignIn}  = React.useContext(GlobalContext);
-  const {confirmModalOpen} = React.useContext(ConfirmContext);
-  
+
+<<<<<<< HEAD
+  const [login,setLogin]=React.useState({
+    user_email:''
+  })
+=======
+>>>>>>> 9376c189df93080edc33f3fccfbcd4a42f1527c7
+  const {signIn,setSignIn} = React.useContext(GlobalContext);
+  const {confirmModalOpen,confirmModalClose,confirmMsg,isConfirmModal} = React.useContext(ConfirmContext);
+
   const [ state, setState ] = React.useState({
     isSearch: false,
     searchMsg: ''
   });
-
-  const location = useLocation();
   
   // searching-bar onFocus event 
   const onFocusInput=(e)=>{
@@ -57,18 +61,53 @@ export default function HeaderComponent() {
       searchMsg: ''
     })
   }
-
-  // 로그아웃
-  const onClickLogOut=(e)=>{
+<<<<<<< HEAD
+  React.useEffect(() => {
+    const storedData = localStorage.getItem('SOOMGOUSERLOGIN');
+  
+    if (storedData) {
+      const { user_email } = JSON.parse(storedData);
+  
+      setLogin(prevLogin => ({
+        ...prevLogin,
+        user_email
+      }));
+    }
+  }, [login.user_email,signIn.user_email]); // 의존성 배열 비움
+  
+  console.log(login.user_email);
+  
+  const onClickSignOut = (e) => {
     e.preventDefault();
-    localStorage.removeItem('SOOMGOUSERLOGIN');
+    localStorage.removeItem('SOOMGOUSERLOGIN'); // 로그인 정보 모두 삭제
+  
+    setLogin(prevLogin => ({
+      ...prevLogin,
+      user_email: '',
+    }));
+  
+    confirmModalOpen('로그아웃 되었습니다.');
+  }
+=======
+  React.useEffect(()=>{
+    console.log(localStorage.getItem(signIn));
+  },[])
+
+  const onClickSignOut=(e)=>{
+    e.preventDefault();
+    localStorage.removeItem(signIn.signinKey); // 로그인 정보 모두 삭제
+
     setSignIn({
         ...signIn,
         user_email:'',
-        expires: ''
+        expires:''
     })
-    confirmModalOpen('로그아웃')
+    
+    confirmModalOpen('로그아웃 되었습니다.');
+ 
+    
 }
+>>>>>>> 9376c189df93080edc33f3fccfbcd4a42f1527c7
   
   return (
     <>
@@ -79,7 +118,7 @@ export default function HeaderComponent() {
             <Link to="/home"><img src="./images/header/icon-navi-logo.svg" alt="숨고 로고" /></Link>
           </div>
           <ul className="nav-bar__list">
-            <li><Link to="/request">서비스요청</Link></li>
+            <li><Link to="/request">견적요청</Link></li>
             <li><Link to="/finding">고수찾기</Link></li>
             <li><Link to="/market">마켓</Link></li>
             <li><Link to="/community">커뮤니티</Link></li>
@@ -116,15 +155,17 @@ export default function HeaderComponent() {
         </div>
         <div className="nav-bar__right">
           <ul className="nav-bar__user">
-            <li>
-                 {
-                  signIn.user_email==='' ?
-                 ( <Link to="/login" className={location.pathname==='/join'?'on':''}  title='로그인'>로그인</Link>)
-                  :
-                 ( <button onClick={onClickLogOut} title='로그아웃'>로그아웃</button>)
-                }
-            </li>
-	          <li><Link to="/join">회원가입</Link></li>
+            {
+<<<<<<< HEAD
+              login.user_email === '' ?
+=======
+              signIn.user_email === '' ?
+>>>>>>> 9376c189df93080edc33f3fccfbcd4a42f1527c7
+              ( <li><Link to="/login">로그인</Link></li>)
+              :
+              (<li><Link to="/main" onClick={onClickSignOut}> 로그아웃</Link></li>)
+            }
+            <li><Link to="/join">회원가입</Link></li>
           </ul>
           <Link to="/expertJoin"><button className='nav-join__button' type='button'>고수가입</button></Link>
         </div>

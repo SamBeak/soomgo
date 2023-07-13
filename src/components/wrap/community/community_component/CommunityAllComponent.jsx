@@ -15,7 +15,13 @@ export default  function CommunityAllComponent(){
     const [state,setState]=React.useState({
         listData:[],
         test:{}
+<<<<<<< HEAD
+
     });
+    const [cnt,setCnt]=React.useState(1);
+=======
+    });
+>>>>>>> 9376c189df93080edc33f3fccfbcd4a42f1527c7
 
     const [key,setKey] =React.useState({
         key:'COMMUNITY',
@@ -42,6 +48,17 @@ export default  function CommunityAllComponent(){
             })
         }
     }
+<<<<<<< HEAD
+    const onClickCnt=(e)=>{
+        e.preventDefault();
+        setCnt(cnt+1)
+    }
+    const onClickCntMinu=(e)=>{
+        e.preventDefault();
+        setCnt(cnt-1)
+    }
+=======
+>>>>>>> 9376c189df93080edc33f3fccfbcd4a42f1527c7
   
     const onClickList=(e, item)=>{
        
@@ -129,6 +146,11 @@ export default  function CommunityAllComponent(){
 
     },[])
 
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> 9376c189df93080edc33f3fccfbcd4a42f1527c7
     const getList=()=>{
         try {
             axios({
@@ -140,9 +162,17 @@ export default  function CommunityAllComponent(){
                 setState({
                     ...state,
                     listData:res.data.result
+<<<<<<< HEAD
+
                     
                 });
                 console.log(res);  
+              
+=======
+                    
+                });
+                console.log(res);  
+>>>>>>> 9376c189df93080edc33f3fccfbcd4a42f1527c7
             })
             .catch((err)=>{
                 console.log(err);  
@@ -161,11 +191,34 @@ export default  function CommunityAllComponent(){
        
         
     },[])
+<<<<<<< HEAD
+
+
+    
+    const dataSlice = (e)=>
+        state.listData.slice(0,5).map((item)=>{
+            return(
+            <li className="slide" key={item.idx}>
+                <Link to={`./view/${item.idx}`}>
+                    <div className="slide-item">
+                        <h3>{item.subject}</h3>
+                        <p>{item.title}</p>
+                        <div className="p-wrap">
+                            <p className='feed-p1'>246</p>
+                            <p className='feed-p2'>13</p>
+                        </div>
+                    </div>
+                </Link>
+            </li>
+            )
+        })
+=======
     
     
 
 
 
+>>>>>>> 9376c189df93080edc33f3fccfbcd4a42f1527c7
     
     return (
         <div id='c-all'>
@@ -177,7 +230,11 @@ export default  function CommunityAllComponent(){
                         <div className='pp'>
                             <strong>지금 가장 뜨거운 숨고픽🔥</strong>
                             <span>  
+<<<<<<< HEAD
+                                <em>{cnt}</em>
+=======
                                 <em>1</em>
+>>>>>>> 9376c189df93080edc33f3fccfbcd4a42f1527c7
                                 <i>/</i>
                                 <em>2</em>
                             </span>
@@ -197,6 +254,19 @@ export default  function CommunityAllComponent(){
                                             </div>
                                         </a>
                                     </li>
+<<<<<<< HEAD
+                                    {
+                                        state.listData.length < 5 ?
+                                        (<></>)
+                                        :
+                                        (dataSlice())
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="!#" className='arrow-btn-next' onClick={onClickCnt}><img src="http://localhost:3000/images/community/content/icon-arrow-right.svg" alt=""/></a>
+                        <a href="!#" className='arrow-btn-prev' onClick={onClickCntMinu}><img src="http://localhost:3000/images/community/content/icon-arrow-left.svg" alt=""/></a>
+=======
                                     <li className="slide">
                                         <Link to="./view">
                                             <div className="slide-item">
@@ -262,6 +332,7 @@ export default  function CommunityAllComponent(){
                         </div>
                         <a href="!#" className='arrow-btn-next'><img src="http://localhost:3000/images/community/content/icon-arrow-right.svg" alt=""/></a>
                         <a href="!#" className='arrow-btn-prev'><img src="http://localhost:3000/images/community/content/icon-arrow-left.svg" alt=""/></a>
+>>>>>>> 9376c189df93080edc33f3fccfbcd4a42f1527c7
                     </div>
                     <div className="btn-wrap">
                         <button className='blind'><span>초기화</span></button>
@@ -283,8 +354,21 @@ export default  function CommunityAllComponent(){
                                                 <div className="feed-content">
                                                     <h4>{item.subject}</h4>
                                                     <h3>{item.title}</h3>
+<<<<<<< HEAD
+                                                    
+                                                    <p className='c'>{item.content}</p>
+
+                                                   { 
+                                                        item.location==="null"?
+                                                        (<></>)
+                                                        :
+                                                        (<p className='l'>{item.location}</p>)
+                                                   }
+                                                    
+=======
                                                     <p className='c'>{item.content}</p>
                                                     <p className='l'>{item.location}</p>
+>>>>>>> 9376c189df93080edc33f3fccfbcd4a42f1527c7
                                                 </div>
                                             </div>
                                             <div className="img-wrap">

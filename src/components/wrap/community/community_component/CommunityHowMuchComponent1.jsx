@@ -2,10 +2,56 @@ import React from 'react';
 import './scss/c_how_much.scss';
 import { Link } from 'react-router-dom';
 import CommunityHowMuchComponent from './CommunityHowMuchComponent';
+<<<<<<< HEAD
+import CommunityHeaderLeft from './CommunityHeaderLeft';
+import { ConfirmContext } from '../../context/ConfirmContext';
+import { GlobalContext } from '../../context/GlobalContext';
+
+export default function CommunityQuestionComponent1(){
+
+
+    const [login,setLogin]=React.useState({
+        user_email:''
+    })
+    const {confirmModalOpen,confirmModalClose,confirmMsg,isConfirmModal} = React.useContext(ConfirmContext);
+    const {signIn, setSignIn} = React.useContext(GlobalContext);
+    const [isNav,setIsNav]=React.useState(false);
+
+
+    React.useEffect(() => {
+        const storedData = localStorage.getItem('SOOMGOUSERLOGIN');
+    
+        if (storedData) {
+          const { user_email } = JSON.parse(storedData);
+    
+          setLogin(prevLogin => ({
+            ...prevLogin,
+            user_email
+          }));
+        }
+      }, []);
+
+    const onClickWrite=(e)=>{
+        e.preventDefault();
+
+        if(login.user_email===''){
+            confirmModalOpen('회원가입 후 작성해주세요.');
+            console.log(login.user_email)
+        }
+        else if(login.user_email!==''){
+            window.location.pathname='community/write';
+        }   
+        else{
+            
+            
+        }   
+    }
+=======
 export default function CommunityQuestionComponent1(){
     const [isNav,setIsNav]=React.useState(false);
 
 
+>>>>>>> 9376c189df93080edc33f3fccfbcd4a42f1527c7
 
 
     return (
@@ -14,7 +60,11 @@ export default function CommunityQuestionComponent1(){
                 <div className="c-title">
                     <div className="c-title-wrap">
                         <h1>커뮤니티</h1>
+<<<<<<< HEAD
+                        <button type='submit' onClick={onClickWrite}>글쓰기<img src="http://localhost:3000/images/community/header/icon-board-create.svg" alt="" /></button>
+=======
                         <button type='submit'>글쓰기<img src="http://localhost:3000/images/community/header/icon-board-create.svg" alt="" /></button>
+>>>>>>> 9376c189df93080edc33f3fccfbcd4a42f1527c7
                     </div>  
                     <ul className="c-nav">
                         <li><a className={`${isNav ? '' : ' on'}`} href="!#">숨고생활</a></li>
@@ -22,6 +72,15 @@ export default function CommunityQuestionComponent1(){
                     </ul>
                 </div>
                 <div className="c-content">
+<<<<<<< HEAD
+                    <div className="left-right">
+                        <div className="left">
+                            <CommunityHeaderLeft/>
+                        </div>
+                        <div className="right">
+                            <CommunityHowMuchComponent/>
+                        </div>
+=======
                     <div className="left">
                         <ul className="topic">
                             <li className='nav-list on'><Link to='community'><img src="http://localhost:3000/images/community/header/634d181f-f6cc-470c-9a1a-cfed6d9c909a.png" alt="" /><span>전체</span></Link></li>
@@ -37,6 +96,7 @@ export default function CommunityQuestionComponent1(){
                        
                             <CommunityHowMuchComponent/>
                         
+>>>>>>> 9376c189df93080edc33f3fccfbcd4a42f1527c7
                     </div>
                 </div>
             </div>

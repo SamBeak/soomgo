@@ -4,14 +4,52 @@ import './scss/c_header.scss';
 import { Link } from 'react-router-dom';
 import { ConfirmContext } from '../../context/ConfirmContext';
 import { GlobalContext } from '../../context/GlobalContext';
+<<<<<<< HEAD
+import CommunityHeaderLeft from './CommunityHeaderLeft';
+
+export default function CommunityHeaderComponent(){
+    const [login,setLogin]=React.useState({
+        user_email:''
+    })
+=======
 
 export default function CommunityHeaderComponent(){
 
+>>>>>>> 9376c189df93080edc33f3fccfbcd4a42f1527c7
     const {confirmModalOpen,confirmModalClose,confirmMsg,isConfirmModal} = React.useContext(ConfirmContext);
     const {signIn, setSignIn} = React.useContext(GlobalContext);
 
     const [isNav,setIsNav]=React.useState(false);
 
+<<<<<<< HEAD
+    React.useEffect(() => {
+        const storedData = localStorage.getItem('SOOMGOUSERLOGIN');
+    
+        if (storedData) {
+          const { user_email } = JSON.parse(storedData);
+    
+          setLogin(prevLogin => ({
+            ...prevLogin,
+            user_email
+          }));
+        }
+      }, []);
+    
+      console.log(login.user_email);
+
+    const onClickWrite=(e)=>{
+        e.preventDefault();
+
+        if(login.user_email===''){
+            confirmModalOpen('로그인 후 작성해주세요.');
+            console.log(login.user_email)
+        }
+        else if(login.user_email!==''){
+            window.location.pathname='community/write';
+        }   
+        else{
+            
+=======
     const onClickWrite=(e)=>{
         e.preventDefault();
         if(localStorage.getItem(signIn.user_email)===''){
@@ -20,11 +58,16 @@ export default function CommunityHeaderComponent(){
         }
         else{
             window.location.pathname='community/write';
+>>>>>>> 9376c189df93080edc33f3fccfbcd4a42f1527c7
             
         }   
     }
 
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 9376c189df93080edc33f3fccfbcd4a42f1527c7
     return (
         <div id='c-header'>
             <div className="c-container">
@@ -41,6 +84,18 @@ export default function CommunityHeaderComponent(){
                     </ul>
                 </div>
                 <div className="c-content">
+<<<<<<< HEAD
+                    <div className="left-right">
+                        <div className="left">
+                            <CommunityHeaderLeft/>
+                        </div>
+                        <div className="right">
+                            <CommunityAllComponent />
+                        </div>
+                    </div>
+                    
+                       
+=======
                     <div className="left">
                         <ul className="topic">
                             <li className='nav-list on'><Link to='./'><img src="http://localhost:3000/images/community/header/634d181f-f6cc-470c-9a1a-cfed6d9c909a.png" alt="" /><span>전체</span></Link></li>
@@ -57,6 +112,7 @@ export default function CommunityHeaderComponent(){
                             <CommunityAllComponent />
                         
                     </div>
+>>>>>>> 9376c189df93080edc33f3fccfbcd4a42f1527c7
                 </div>
             </div>
         </div>
