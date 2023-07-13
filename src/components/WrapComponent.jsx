@@ -18,6 +18,10 @@ import ConfirmModal from './wrap/ConfirmModal'
 // context
 import { GlobalContext } from './wrap/context/GlobalContext'
 import { ConfirmContext } from './wrap/context/ConfirmContext'
+import CommunityQuestionComponent1 from './wrap/community/community_component/CommunityQuestionComponent1'
+import CommunityHowMuchComponent1 from './wrap/community/community_component/CommunityHowMuchComponent1'
+import CommunityFindComponent1 from './wrap/community/community_component/CommunityFindComponent1'
+import CommunityTogetherComponent1 from './wrap/community/community_component/CommunityTogetherComponent1'
 
 export default function WrapComponent() {
 
@@ -32,29 +36,10 @@ const{signinKey,user_email,expires} = signIn;
 React.useEffect(()=>{
   // 로컬스토리지 로그인 정보 가져오기
   let result = '';
-  if(localStorage.getItem(signinKey)!==null){
-    result = JSON.parse(localStorage.getItem(signinKey));
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    // if(new Date() > result.expires){
-    //   setSignIn({
-    //     ...signIn,
-    //       user_email: '',
-    //       expires: ''
-    //     })
-    //     localStorage.removeItem(signinKey); // 로그인 정보 모두 삭제
-    // }
-    // else{
-    //   setSignIn({
-    //     ...signIn,
-    //       user_email: result.user_email,
-    //       expires: result.expires
-    //     })
-    // }
-   
-  }
-  },[user_email, expires, signinKey]);
+    if(localStorage.getItem(signinKey)!==null){
+        result = JSON.parse(localStorage.getItem(signinKey));
+    }
+},[user_email, expires, signinKey]);
 
 
 // 모달창
@@ -74,10 +59,10 @@ const confirmModalOpen=(msg)=>{
 }
 
 const confirmModalClose=()=>{
-setModal({
-    ...modal,
-    isConfirmModal: false
-});
+    setModal({
+        ...modal,
+        isConfirmModal: false
+    });
 }
 
 
@@ -95,8 +80,8 @@ setModal({
                 <Route path='/market' element={<MarketComponent />} />
                 <Route path='/finding' element={<FindingComponent />} />
                 <Route path='/community/*' element={<CommunityComponent />} />
-                <Route path='/question' element={<CommunityQuestionComponent1/>}/>
-                <Route path='/howMuch' element={<CommunityHowMuchComponent1/>}/>
+                <Route path='/question' element={<CommunityQuestionComponent1 />}/>
+                <Route path='/howMuch' element={<CommunityHowMuchComponent1 />}/>
                 <Route path='/find' element={<CommunityFindComponent1/>}/>
                 <Route path='/together' element={<CommunityTogetherComponent1/>}/>
                 <Route path='/login' element={<LoginComponent />} />
@@ -107,185 +92,11 @@ setModal({
             </Routes>
           </BrowserRouter>
           <FooterComponent />
-       
-          {isConfirmModal && <ConfirmModal/>}
-=======
-    if(new Date() > result.expires){
-      setSignIn({
-        ...signIn,
-          user_email: '',
-          expires: ''
-        })
-        localStorage.removeItem(signinKey); // 로그인 정보 모두 삭제
-    }
-    else{
-      setSignIn({
-        ...signIn,
-          user_email: result.user_email,
-          expires: result.expires
-        })
-    }
-   
-  }
-},[user_email, expires, signinKey, signIn]);
-
-
-// 모달창
-  const [modal, setModal]  =  React.useState({
-    confirmMsg: '모달창에 자식창에서 보내온 타이틀 메시지내용입니다.',
-    isConfirmModal: false, // true 모달열기  false 모달닫기    
-});
-
-  const {confirmMsg,isConfirmModal} = modal;
-
-  const confirmModalOpen=(msg)=>{
-    setModal({
-        ...modal,
-        confirmMsg: msg,
-        isConfirmModal: true
-    });
-}
-
-const confirmModalClose=()=>{
-  setModal({
-      ...modal,
-      isConfirmModal: false
-  });
-}
-
-
-
-  return (
-    <div id="wrap">
-=======
-    if(new Date() > result.expires){
-      setSignIn({
-        ...signIn,
-          user_email: '',
-          expires: ''
-        })
-        localStorage.removeItem(signinKey); // 로그인 정보 모두 삭제
-    }
-    else{
-      setSignIn({
-        ...signIn,
-          user_email: result.user_email,
-          expires: result.expires
-        })
-    }
-   
-  }
-},[user_email, expires, signinKey, signIn]);
-
-
-// 모달창
-  const [modal, setModal]  =  React.useState({
-    confirmMsg: '모달창에 자식창에서 보내온 타이틀 메시지내용입니다.',
-    isConfirmModal: false, // true 모달열기  false 모달닫기    
-});
-
-  const {confirmMsg,isConfirmModal} = modal;
-
-  const confirmModalOpen=(msg)=>{
-    setModal({
-        ...modal,
-        confirmMsg: msg,
-        isConfirmModal: true
-    });
-}
-
-const confirmModalClose=()=>{
-  setModal({
-      ...modal,
-      isConfirmModal: false
-  });
-}
-
-
-
-  return (
-    <div id="wrap">
->>>>>>> parent of 36e57a4 (Merge branch 'pr/1')
-=======
-    if(new Date() > result.expires){
-      setSignIn({
-        ...signIn,
-          user_email: '',
-          expires: ''
-        })
-        localStorage.removeItem(signinKey); // 로그인 정보 모두 삭제
-    }
-    else{
-      setSignIn({
-        ...signIn,
-          user_email: result.user_email,
-          expires: result.expires
-        })
-    }
-   
-  }
-},[user_email, expires, signinKey, signIn]);
-
-
-// 모달창
-  const [modal, setModal]  =  React.useState({
-    confirmMsg: '모달창에 자식창에서 보내온 타이틀 메시지내용입니다.',
-    isConfirmModal: false, // true 모달열기  false 모달닫기    
-});
-
-  const {confirmMsg,isConfirmModal} = modal;
-
-  const confirmModalOpen=(msg)=>{
-    setModal({
-        ...modal,
-        confirmMsg: msg,
-        isConfirmModal: true
-    });
-}
-
-const confirmModalClose=()=>{
-  setModal({
-      ...modal,
-      isConfirmModal: false
-  });
-}
-
-
-
-  return (
-    <div id="wrap">
->>>>>>> parent of 36e57a4 (Merge branch 'pr/1')
-      <GlobalContext.Provider value={{ signIn, setSignIn }}>
-      <ConfirmContext.Provider value={{confirmModalOpen,confirmModalClose,confirmMsg,isConfirmModal}}>
-      <BrowserRouter>
-        <Routes>
-          <Route path='' element={<HeaderComponent />}>
-            <Route index element={<HomeComponent />} />
-            <Route path='/home' element={<HomeComponent />} />
-            <Route path='/request' element={<RequestComponent />} />
-            <Route path='/market' element={<MarketComponent />} />
-            <Route path='/finding' element={<FindingComponent />} />
-            <Route path='/community' element={<CommunityComponent />} />
-            <Route path='/login' element={<LoginComponent />} />
-            <Route path='/join' element={<JoinComponent />} />
-            <Route path='/expertJoin' element={<ExpertJoinComponent />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-      <FooterComponent />
-      
-      {
-        modal.isConfirmModal && <ConfirmModal/>
-      }
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> parent of 36e57a4 (Merge branch 'pr/1')
-=======
->>>>>>> parent of 36e57a4 (Merge branch 'pr/1')
-=======
->>>>>>> parent of 36e57a4 (Merge branch 'pr/1')
-      </ConfirmContext.Provider>
-      </GlobalContext.Provider>
+        {
+            modal.isConfirmModal && <ConfirmModal/>
+        }
+        </ConfirmContext.Provider>
+        </GlobalContext.Provider>
     </div>
   )
 }
