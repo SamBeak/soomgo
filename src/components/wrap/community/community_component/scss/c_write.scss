@@ -1,17 +1,10 @@
 #write{
     width: 100%;
-<<<<<<< HEAD
-   .container3{
+   >.container{
     width: 100%;
-        .title3{
-=======
-   .container{
-    width: 100%;
- 
-
-        .title{
->>>>>>> 9376c189df93080edc33f3fccfbcd4a42f1527c7
-            width: 970px;
+        >.title{
+            width: 100%;
+            max-width: 930px;
             margin: 0 auto;
             height: 56px;
             .title-header{
@@ -59,8 +52,11 @@
                 }
             }
         }
-        .row1-wrap{
-            width: 1903px;
+        >.row1-wrap{
+            width: 100%;
+            max-width: 1903px;
+            // max-width: 1903px;
+            // width: 1903px;
             height: 56px;
             background-color: rgb(250, 250, 250) ;
             .row1{
@@ -98,19 +94,17 @@
             }
         }
 
-        .content{
+        >.content{
             width: 100%;
             max-width: 970px;
             margin: 0 auto;
-
             .row2{
                 width: 100%;
+                max-width: 970px;
                 height: 64px;
                 border-bottom:1px solid #ddd ;
-                > label{
-
-                }
                 > input{
+                    width: 100%;
                     border: 0;
                     padding: 20px 0;
                     font-size: 14px;

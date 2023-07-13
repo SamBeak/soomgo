@@ -17,13 +17,10 @@ export default function CommunityComponent() {
          <Routes>
             <Route path='community/*' element={<CommunityHeaderComponent />}/>
                 <Route index element={<CommunityHeaderComponent/>}/>
-<<<<<<< HEAD
-=======
                 <Route path='question' element={<CommunityQuestionComponent1/>}/>
                 <Route path='howMuch' element={<CommunityHowMuchComponent1/>}/>
                 <Route path='find' element={<CommunityFindComponent1/>}/>
                 <Route path='together' element={<CommunityTogetherComponent1/>}/>
->>>>>>> 9376c189df93080edc33f3fccfbcd4a42f1527c7
                 <Route path='write' element={<ComWriteComponent/>}/>
                 <Route path='view' element={<ComViewListComponent/>}/>
                 <Route path='update' element={<ComUpdateComponent/>}/>

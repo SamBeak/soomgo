@@ -202,7 +202,6 @@ const onClickNext = (e) => {
                 <div className="row2">
                     <div className="slide-contianer">
                       <div className="slide-view">
-<<<<<<< HEAD
                         <ul ref={slideWrap} className="slide-wrap">
                           <li className="slide slide01">
                             <a href="">
@@ -277,7 +276,7 @@ const onClickNext = (e) => {
                     </div> */}
                 </div>
               </div>
-              {/* <div className="section6">
+              <div className="section6">
                 <div className="row1">
                   <h2>고수 성공 스토리</h2>
                   <h3>숨고를 통해 성공한 고수의 스토리를 들어보세요.</h3>
@@ -286,48 +285,49 @@ const onClickNext = (e) => {
                   <div className="content-box">
                     <a href="!#">
                     <div className="content1">
-                      <img src="./images/gosu/clip_img_04.jpg" alt="" />
+                      <span><img src="./images/gosu/clip_img_04.jpg" alt="" /></span>
                       <img src="./images/gosu/btn_clip_play.jpg" alt="" />
+                      <div className="txt-box">
                       <h2>포토그래퍼</h2>
                       <h3>강휘원 고수</h3>
                       </div>
+                      </div>
                       <div className="content2">
-                      <img src="./images/gosu/clip_img_05.jpg" alt="" />
+                      <span><img src="./images/gosu/clip_img_05.jpg" alt="" /></span>
                       <img src="./images/gosu/btn_clip_play.jpg" alt="" />
+                      <div className="txt-box">
                       <h2>이사</h2>
                       <h3>박환준 고수</h3>
-                      </div> <div className="content3">
-                      <img src="./images/gosu/clip_img_06.jpg" alt="" />
+                      </div>
+                      </div>
+                      <div className="content3">
+                      <span><img src="./images/gosu/clip_img_06.jpg" alt="" /></span>
                       <img src="./images/gosu/btn_clip_play.jpg" alt="" />
+                      <div className="txt-box">
                       <h2>웨딩플래너</h2>
                       <h3>이성희 고수</h3>
-                      </div> <div className="content4">
-                      <img src="./images/gosu/clip_img_07.jpg" alt="" />
+                      </div>
+                      </div>
+                      <div className="content4">
+                      <span><img src="./images/gosu/clip_img_07.jpg" alt="" /></span>
                       <img src="./images/gosu/btn_clip_play.jpg" alt="" />
+                      <div className="txt-box">
                       <h2>청소도우미</h2>
                       <h3>이은혜 고수</h3>
-                      </div> <div className="content5">
-                      <img src="./images/gosu/clip_img_09.jpg" alt="" />
+                      </div>
+                      </div>
+                      <div className="content5">
+                      <span><img src="./images/gosu/clip_img_09.jpg" alt="" /></span>
                       <img src="./images/gosu/btn_clip_play.jpg" alt="" />
+                      <div className="txt-box">
                       <h2>피아니스트</h2>
                       <h3>윤다정 고수</h3>
+                      </div>
                       </div>
                     </a>
                   </div>
                 </div>
-              </div> */}
-=======
-                        <ul className="slide-wrap">
-                          <li className="slide slide01"></li>
-                          <li className="slide slide02"></li>
-                          <li className="slide slide03"></li>
-                          <li className="slide slide04"></li>
-                        </ul>
-                      </div>
-                    </div>
-                </div>
               </div>
->>>>>>> 9376c189df93080edc33f3fccfbcd4a42f1527c7
             </div>
           </div>
         </div>
