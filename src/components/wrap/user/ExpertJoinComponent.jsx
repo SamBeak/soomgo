@@ -281,7 +281,7 @@ const onClickNext = (e) => {
                   <h2>고수 성공 스토리</h2>
                   <h3>숨고를 통해 성공한 고수의 스토리를 들어보세요.</h3>
                 </div>
-                <div className="row2">
+                {/* <div className="row2">
                   <div className="content-box">
                     <a href="!#">
                     <div className="content1">
@@ -319,12 +319,43 @@ const onClickNext = (e) => {
                       <div className="content5">
                       <span><img src="./images/gosu/clip_img_09.jpg" alt="" /></span>
                       <img src="./images/gosu/btn_clip_play.jpg" alt="" />
-                      <div className="txt-box">
+                      <div className="txt-box"></div>
                       <h2>피아니스트</h2>
                       <h3>윤다정 고수</h3>
                       </div>
-                      </div>
                     </a>
+                  </div>
+                </div> */}
+                <div className="row2">
+                  <div className="content1">
+                    <img src="./images/gosu/btn_clip_play.jpg" alt="" />
+                    <h3>포토그래퍼
+                    <small>강휘원 고수</small>
+                    </h3>
+                  </div>
+                  <div className="content2">
+                    <img src="./images/gosu/btn_clip_play.jpg" alt="" />
+                    <h3>이사
+                    <small>박환준 고수</small>
+                    </h3>
+                  </div>
+                  <div className="content3">
+                    <img src="./images/gosu/btn_clip_play.jpg" alt="" />
+                    <h3>웨딩플래너
+                    <small>이성희 고수</small>
+                    </h3>
+                  </div>
+                  <div className="content4">
+                    <img src="./images/gosu/btn_clip_play.jpg" alt="" />
+                    <h3>청소도우미
+                    <small>이은혜 고수</small>
+                    </h3>
+                  </div>
+                  <div className="content5">
+                    <img src="./images/gosu/btn_clip_play.jpg" alt="" />
+                    <h3>피아니스트
+                    <small>윤다정 고수</small>
+                    </h3>
                   </div>
                 </div>
               </div>

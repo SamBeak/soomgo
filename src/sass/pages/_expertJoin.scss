@@ -299,10 +299,13 @@
                     }
                 }
                 .section6{
+                    position: relative;
+                    width: 1000px;
+                    height: 1200px;
+                    padding: 0 0 100px 0;
                     display: flex;
                     flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
+                    margin: 0 auto;
                     .row1{
                         display: flex;
                         flex-direction: column;
@@ -320,7 +323,187 @@
                         }
                     }
                     .row2{
-                        
+                        position: relative;
+                        cursor: pointer;
+                        display: flex;
+                        width: 1000px;
+                        .content1{
+                            background: url(../../../public/images/gosu/clip_img_04.jpg) no-repeat 50% 50%;
+                            width: 650px;
+                            height: 628px;
+                            background-size: cover;
+                            background-position: 50%;
+                            padding: 1.25rem;
+                            position: absolute;
+                            img{
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                width: 2.5rem;
+                                height: 2.5rem;
+                                margin-top: -1.25rem;
+                                margin-left: -1.25rem;
+                            }
+                            h3{
+                                font-size: 1.25rem;
+                                color: #fff;
+                                font-weight: 100;
+                                margin-bottom: 0;
+                                position: absolute;
+                                bottom: 1.75rem;
+                                line-height: 1.1;
+                                small{
+                                    font-size: .875rem;
+                                    color: #fff;
+                                    display: block;
+                                    margin-top: 0.3125rem;
+                                    line-height: 1;
+                                }
+                            }
+                        }
+                        .content2{
+                            background: url(../../../public/images/gosu/clip_img_05.jpg) no-repeat 50% 50%;
+                            width: 317px;
+                            height: 306px;
+                            background-size: cover;
+                            background-position: 50%;
+                            padding: 1.25rem;
+                            position: absolute;
+                            right: 20px;
+                            img{
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                width: 2.5rem;
+                                height: 2.5rem;
+                                margin-top: -1.25rem;
+                                margin-left: -1.25rem;
+                            }
+                            h3{
+                                font-size: 1.25rem;
+                                color: #fff;
+                                font-weight: 100;
+                                margin-bottom: 0;
+                                position: absolute;
+                                bottom: 1.75rem;
+                                line-height: 1.1;
+                                small{
+                                    font-size: .875rem;
+                                    color: #fff;
+                                    display: block;
+                                    margin-top: 0.3125rem;
+                                    line-height: 1;
+                                }
+                            }
+                        }
+                        .content3{
+                            background: url(../../../public/images/gosu/clip_img_06.jpg) no-repeat 50% 50%;
+                            width: 317px;
+                            height: 306px;
+                            background-size: cover;
+                            background-position: 50%;
+                            padding: 1.25rem;
+                            position: absolute;
+                            right: 20px;
+                            top: 320px;
+                            img{
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                width: 2.5rem;
+                                height: 2.5rem;
+                                margin-top: -1.25rem;
+                                margin-left: -1.25rem;
+                            }
+                            h3{
+                                font-size: 1.25rem;
+                                color: #fff;
+                                font-weight: 100;
+                                margin-bottom: 0;
+                                position: absolute;
+                                bottom: 1.75rem;
+                                line-height: 1.1;
+                                small{
+                                    font-size: .875rem;
+                                    color: #fff;
+                                    display: block;
+                                    margin-top: 0.3125rem;
+                                    line-height: 1;
+                                }
+                            }
+                        }
+                        .content4{
+                            background: url(../../../public/images/gosu/clip_img_07.jpg) no-repeat 50% 50%;
+                            width: 317px;
+                            height: 306px;
+                            background-size: cover;
+                            background-position: 50%;
+                            padding: 1.25rem;
+                            position: absolute;
+                            left: 0;
+                            bottom: -950px;
+                            img{
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                width: 2.5rem;
+                                height: 2.5rem;
+                                margin-top: -1.25rem;
+                                margin-left: -1.25rem;
+                            }
+                            h3{
+                                font-size: 1.25rem;
+                                color: #fff;
+                                font-weight: 100;
+                                margin-bottom: 0;
+                                position: absolute;
+                                bottom: 1.75rem;
+                                line-height: 1.1;
+                                small{
+                                    font-size: .875rem;
+                                    color: #fff;
+                                    display: block;
+                                    margin-top: 0.3125rem;
+                                    line-height: 1;
+                                }
+                            }
+                        }
+                        .content5{
+                            background: url(../../../public/images/gosu/clip_img_09.jpg) no-repeat 50% 50%;
+                            width: 650px;
+                            height: 306px;
+                            background-size: cover;
+                            background-position: 50%;
+                            padding: 1.25rem;
+                            position: absolute;
+                            right: 20px;
+                            bottom: -950px;
+                            img{
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                width: 2.5rem;
+                                height: 2.5rem;
+                                margin-top: -1.25rem;
+                                margin-left: -1.25rem;
+                            }
+                            h3{
+                                font-size: 1.25rem;
+                                color: #fff;
+                                font-weight: 100;
+                                margin-bottom: 0;
+                                position: absolute;
+                                bottom: 1.75rem;
+                                line-height: 1.1;
+                                small{
+                                    font-size: .875rem;
+                                    color: #fff;
+                                    display: block;
+                                    margin-top: 0.3125rem;
+                                    line-height: 1;
+                                }
+                            }
+                        }
                     }
                 }
             }
