@@ -1,4 +1,5 @@
 #section7{
+    margin-bottom: 5rem;
     .container{
         .title{
             @include align_center;
@@ -160,34 +161,7 @@
                     }
                 }
                 .popular-pro__btn{
-                    .btn__item--prev{
-                        position: absolute;
-                        top: 40%;
-                        left: -1rem;
-                        transform: translateY(-50%);
-                        button{
-                            @include slide_btn;
-                            background-color: $soomgo-white__color;
-                            i{
-                                font-size: 1.2rem;
-                                color: $soomgo-main__color;
-                            }
-                        }
-                    }
-                    .btn__item--next{
-                        position: absolute;
-                        top: 40%;
-                        right: -1rem;
-                        transform: translateY(-50%);
-                        button{
-                            @include slide_btn;
-                            background-color: $soomgo-white__color;
-                            i{
-                                font-size: 1.2rem;
-                                color: $soomgo-main__color;
-                            }
-                        }
-                    }
+                    @include main-slide__btn;
                 }
             }
         }

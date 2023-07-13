@@ -56,36 +56,7 @@
                 }
             }
             .main-services__btn{
-                .btn__item--prev{
-                    position: absolute;
-                    z-index: 2;
-                    top: 3.5rem;
-                    left: -1rem;
-                    @include transition;
-                    >button{
-                        @include slide_btn;
-                        background-color: $soomgo-white__color;
-                        i{
-                            font-size: 1.2rem;
-                            color: $soomgo-main__color;
-                        }
-                    }
-                }
-                .btn__item--next{
-                    position: absolute;
-                    z-index: 2;
-                    top: 3.5rem;
-                    right: -1rem;
-                    @include transition;
-                    >button{
-                        @include slide_btn;
-                        background-color: $soomgo-white__color;
-                        i{
-                            font-size: 1.2rem;
-                            color: $soomgo-main__color;
-                        }
-                    }
-                }
+                @include main-slide__btn;
             }
         }
     }

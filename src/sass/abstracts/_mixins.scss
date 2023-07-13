@@ -49,3 +49,34 @@
     overflow: hidden;
     white-space: nowrap;
 }
+// slide btn : 중복된 코드
+@mixin main-slide__btn{
+    .btn__item--prev{
+        position: absolute;
+        top: 40%;
+        left: -1rem;
+        transform: translateY(-50%);
+        button{
+            @include slide_btn;
+            background-color: $soomgo-white__color;
+            i{
+                font-size: 1.2rem;
+                color: $soomgo-main__color;
+            }
+        }
+    }
+    .btn__item--next{
+        position: absolute;
+        top: 40%;
+        right: -1rem;
+        transform: translateY(-50%);
+        button{
+            @include slide_btn;
+            background-color: $soomgo-white__color;
+            i{
+                font-size: 1.2rem;
+                color: $soomgo-main__color;
+            }
+        }
+    }
+}
