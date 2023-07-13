@@ -35,6 +35,7 @@ React.useEffect(()=>{
   if(localStorage.getItem(signinKey)!==null){
     result = JSON.parse(localStorage.getItem(signinKey));
 <<<<<<< HEAD
+<<<<<<< HEAD
     // if(new Date() > result.expires){
     //   setSignIn({
     //     ...signIn,
@@ -155,6 +156,55 @@ const confirmModalClose=()=>{
 
   return (
     <div id="wrap">
+=======
+    if(new Date() > result.expires){
+      setSignIn({
+        ...signIn,
+          user_email: '',
+          expires: ''
+        })
+        localStorage.removeItem(signinKey); // 로그인 정보 모두 삭제
+    }
+    else{
+      setSignIn({
+        ...signIn,
+          user_email: result.user_email,
+          expires: result.expires
+        })
+    }
+   
+  }
+},[user_email, expires, signinKey, signIn]);
+
+
+// 모달창
+  const [modal, setModal]  =  React.useState({
+    confirmMsg: '모달창에 자식창에서 보내온 타이틀 메시지내용입니다.',
+    isConfirmModal: false, // true 모달열기  false 모달닫기    
+});
+
+  const {confirmMsg,isConfirmModal} = modal;
+
+  const confirmModalOpen=(msg)=>{
+    setModal({
+        ...modal,
+        confirmMsg: msg,
+        isConfirmModal: true
+    });
+}
+
+const confirmModalClose=()=>{
+  setModal({
+      ...modal,
+      isConfirmModal: false
+  });
+}
+
+
+
+  return (
+    <div id="wrap">
+>>>>>>> parent of 36e57a4 (Merge branch 'pr/1')
       <GlobalContext.Provider value={{ signIn, setSignIn }}>
       <ConfirmContext.Provider value={{confirmModalOpen,confirmModalClose,confirmMsg,isConfirmModal}}>
       <BrowserRouter>
@@ -177,6 +227,9 @@ const confirmModalClose=()=>{
       {
         modal.isConfirmModal && <ConfirmModal/>
       }
+<<<<<<< HEAD
+>>>>>>> parent of 36e57a4 (Merge branch 'pr/1')
+=======
 >>>>>>> parent of 36e57a4 (Merge branch 'pr/1')
       </ConfirmContext.Provider>
       </GlobalContext.Provider>
