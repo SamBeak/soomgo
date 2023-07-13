@@ -3,12 +3,17 @@ import './scss/c_write.scss';
 import $, { css } from 'jquery';
 import axios from 'axios';
 import { useSearchParams } from 'react-router-dom';
+<<<<<<< HEAD
 import { ConfirmContext } from '../../context/ConfirmContext';
 import { GlobalContext } from '../../context/GlobalContext';
 
 export default function ComWriteComponent(){
     const {confirmModalOpen,confirmModalClose,confirmMsg,isConfirmModal} = React.useContext(ConfirmContext);
     const {signIn, setSignIn} = React.useContext(GlobalContext);
+=======
+
+export default function ComWriteComponent(){
+>>>>>>> 9376c189df93080edc33f3fccfbcd4a42f1527c7
 
     const [state,setState]=React.useState({
         subject:'',
@@ -21,9 +26,12 @@ export default function ComWriteComponent(){
         content:'',
         writeDate:''
     });
+<<<<<<< HEAD
     const [login,setLogin]=React.useState({
         user_email:''
     })
+=======
+>>>>>>> 9376c189df93080edc33f3fccfbcd4a42f1527c7
     const {content,subject,title}=state;
 
     const [img,setImg]=React.useState({
@@ -34,6 +42,7 @@ export default function ComWriteComponent(){
     const {file,ImgUrl}=img;
 
     const ImgFile=useRef();
+<<<<<<< HEAD
     React.useEffect(()=>{
 
     },[])
@@ -54,6 +63,10 @@ export default function ComWriteComponent(){
       console.log(login.user_email);
       
     
+=======
+
+
+>>>>>>> 9376c189df93080edc33f3fccfbcd4a42f1527c7
    
     
     
@@ -147,7 +160,11 @@ export default function ComWriteComponent(){
 
         let formData = new URLSearchParams();   
 
+<<<<<<< HEAD
         formData.append("userId", login.user_email)
+=======
+        formData.append("userId", "")
+>>>>>>> 9376c189df93080edc33f3fccfbcd4a42f1527c7
         formData.append("subject",state.subject);
         formData.append("file1",state.file1);
         formData.append("file2",state.file2);
@@ -167,8 +184,12 @@ export default function ComWriteComponent(){
         })
         .then((res)=>{
             console.log(res.data);
+<<<<<<< HEAD
             confirmModalOpen('글 작성이 완료되었습니다.');
         
+=======
+            alert('글 작성이 완료되었습니다.');
+>>>>>>> 9376c189df93080edc33f3fccfbcd4a42f1527c7
             window.location.href='/community'
         })
         .catch((err)=>{
@@ -230,8 +251,13 @@ export default function ComWriteComponent(){
 
     return (
         <div id='write'>
+<<<<<<< HEAD
             <div className="container3">
                     <div className="title3">
+=======
+            <div className="container">
+                    <div className="title">
+>>>>>>> 9376c189df93080edc33f3fccfbcd4a42f1527c7
                         <div className="title-header">
                             <div className="select-box">
                                 

@@ -3,85 +3,18 @@ import'./scss/c_all.scss';
 import $ from 'jquery';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { useEffect } from 'react';
-import { ConfirmContext } from '../../context/ConfirmContext';
-import { GlobalContext } from '../../context/GlobalContext';
 
 export default  function CommunityAllComponent(){
-    const {confirmModalOpen,confirmModalClose,confirmMsg,isConfirmModal} = React.useContext(ConfirmContext);
-    const {signIn, setSignIn} = React.useContext(GlobalContext);
-
-
     const [state,setState]=React.useState({
-        listData:[],
-        test:{}
-<<<<<<< HEAD
-
+        subject:'',
+        file1:'',
+        file2:'',
+        file3:'',
+        title:'',
+        service:'',
+        location:'',
+        content:''
     });
-    const [cnt,setCnt]=React.useState(1);
-=======
-    });
->>>>>>> 9376c189df93080edc33f3fccfbcd4a42f1527c7
-
-    const [key,setKey] =React.useState({
-        key:'COMMUNITY',
-        list :[]
-    });
-      
-    const setList=(value)=>{
-        let arr=[];
-        if(localStorage.getItem('COMMUNITY')!==null){
-            arr=JSON.parse(localStorage.getItem('COMMUNITY'));
-            arr=[value, ...arr]
-            localStorage.setItem('COMMUNITY',JSON.stringify(arr));
-            setKey({
-                ...key,
-                list:arr
-            })
-        }
-        else{
-            arr=[value]
-            localStorage.setItem('COMMUNITY',JSON.stringify(arr));
-            setKey({
-                ...key,
-                list:arr
-            })
-        }
-    }
-<<<<<<< HEAD
-    const onClickCnt=(e)=>{
-        e.preventDefault();
-        setCnt(cnt+1)
-    }
-    const onClickCntMinu=(e)=>{
-        e.preventDefault();
-        setCnt(cnt-1)
-    }
-=======
->>>>>>> 9376c189df93080edc33f3fccfbcd4a42f1527c7
-  
-    const onClickList=(e, item)=>{
-       
-        let obj ={
-            idx:item.idx,
-            userId:item.userId,
-            subject:item.subject,
-            file1:item.file1,
-            file2:item.file2,
-            file3:item.file3,
-            title:item.title,
-            service:item.service,
-            location:item.location,
-            content:item.content,
-            writeDate:item.writeDate,
-        }
-        console.log(obj);   
-        setList(obj);
-            
-
-    }
-
-
     const {content,subject,title}=state;
 
     const [img,setImg]=React.useState({
@@ -90,8 +23,9 @@ export default  function CommunityAllComponent(){
     })
 
     const {file,ImgUrl}=img;
-
     React.useEffect(()=>{
+
+
         const $slideContainer=$('.slide-container');
         const $slideWrap=$('.slide-wrap');
         const $slide=$('.slide');
@@ -146,79 +80,38 @@ export default  function CommunityAllComponent(){
 
     },[])
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 9376c189df93080edc33f3fccfbcd4a42f1527c7
-    const getList=()=>{
-        try {
-            axios({
-                url:'/JSP/listAction.jsp',
-                method:'GET', 
-                dataType:'json' 
-            })
-            .then((res)=>{
-                setState({
-                    ...state,
-                    listData:res.data.result
-<<<<<<< HEAD
-
-                    
-                });
-                console.log(res);  
-              
-=======
-                    
-                });
-                console.log(res);  
->>>>>>> 9376c189df93080edc33f3fccfbcd4a42f1527c7
-            })
-            .catch((err)=>{
-                console.log(err);  
-
-            })
-    
- 
-            
-        } catch (err) {
-            console.log(err);   
-
-        }
-    }
     React.useEffect(()=>{
-        getList();
-       
+        let formData = new URLSearchParams();   
         
-    },[])
-<<<<<<< HEAD
+        formData.append("userId", "")
+        formData.append("subject",state.subject);
+        formData.append("file1",state.file1);
+        formData.append("file2",state.file2);
+        formData.append("file3",state.file3);
+        formData.append("title",state.title);
+        formData.append("service",state.service);
+        formData.append("location",state.location);
+        formData.append("content",state.content);
+        console.log(formData);
+     
+        axios({
+            url:'/JSP/listAction.jsp',
+            method:'POST',
+            params:formData,
+            dataType:'json'
 
 
-    
-    const dataSlice = (e)=>
-        state.listData.slice(0,5).map((item)=>{
-            return(
-            <li className="slide" key={item.idx}>
-                <Link to={`./view/${item.idx}`}>
-                    <div className="slide-item">
-                        <h3>{item.subject}</h3>
-                        <p>{item.title}</p>
-                        <div className="p-wrap">
-                            <p className='feed-p1'>246</p>
-                            <p className='feed-p2'>13</p>
-                        </div>
-                    </div>
-                </Link>
-            </li>
-            )
         })
-=======
-    
-    
+        .then((res)=>{
+            console.log(res.data);
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
+    },[])
 
 
 
->>>>>>> 9376c189df93080edc33f3fccfbcd4a42f1527c7
     
     return (
         <div id='c-all'>
@@ -230,11 +123,7 @@ export default  function CommunityAllComponent(){
                         <div className='pp'>
                             <strong>지금 가장 뜨거운 숨고픽🔥</strong>
                             <span>  
-<<<<<<< HEAD
-                                <em>{cnt}</em>
-=======
                                 <em>1</em>
->>>>>>> 9376c189df93080edc33f3fccfbcd4a42f1527c7
                                 <i>/</i>
                                 <em>2</em>
                             </span>
@@ -254,19 +143,6 @@ export default  function CommunityAllComponent(){
                                             </div>
                                         </a>
                                     </li>
-<<<<<<< HEAD
-                                    {
-                                        state.listData.length < 5 ?
-                                        (<></>)
-                                        :
-                                        (dataSlice())
-                                    }
-                                </ul>
-                            </div>
-                        </div>
-                        <a href="!#" className='arrow-btn-next' onClick={onClickCnt}><img src="http://localhost:3000/images/community/content/icon-arrow-right.svg" alt=""/></a>
-                        <a href="!#" className='arrow-btn-prev' onClick={onClickCntMinu}><img src="http://localhost:3000/images/community/content/icon-arrow-left.svg" alt=""/></a>
-=======
                                     <li className="slide">
                                         <Link to="./view">
                                             <div className="slide-item">
@@ -332,7 +208,6 @@ export default  function CommunityAllComponent(){
                         </div>
                         <a href="!#" className='arrow-btn-next'><img src="http://localhost:3000/images/community/content/icon-arrow-right.svg" alt=""/></a>
                         <a href="!#" className='arrow-btn-prev'><img src="http://localhost:3000/images/community/content/icon-arrow-left.svg" alt=""/></a>
->>>>>>> 9376c189df93080edc33f3fccfbcd4a42f1527c7
                     </div>
                     <div className="btn-wrap">
                         <button className='blind'><span>초기화</span></button>
@@ -341,52 +216,56 @@ export default  function CommunityAllComponent(){
                         <button className='blind'><span>지역이름</span></button>
                     </div>
                     <ul className="feed-list">
-
-
-                        {
-                        state.listData!==undefined && state.listData!==null? 
-                        state.listData.map((item)=>{
-                            return(
-                                <li className="feed" key={item.idx} onClick={(e)=>onClickList(e,item)}>
-                                    <Link to={`./view/${item.idx}`}>
-                                        <div className="wrap-wrap">
-                                            <div className="text-wrap">
-                                                <div className="feed-content">
-                                                    <h4>{item.subject}</h4>
-                                                    <h3>{item.title}</h3>
-<<<<<<< HEAD
-                                                    
-                                                    <p className='c'>{item.content}</p>
-
-                                                   { 
-                                                        item.location==="null"?
-                                                        (<></>)
-                                                        :
-                                                        (<p className='l'>{item.location}</p>)
-                                                   }
-                                                    
-=======
-                                                    <p className='c'>{item.content}</p>
-                                                    <p className='l'>{item.location}</p>
->>>>>>> 9376c189df93080edc33f3fccfbcd4a42f1527c7
-                                                </div>
-                                            </div>
-                                            <div className="img-wrap">
-                                                <img src={item.file1} alt="" />
-                                            </div>
+                        <li className="feed">
+                            <Link to="./view">
+                                <div className="wrap-wrap">
+                                    <div className="text-wrap">
+                                        <div className="feed-content">
+                                            <h4>얼마예요</h4>
+                                            <h3>쇼츠 영상 편집 단가에 대해...</h3>
+                                            <p className='c'> 안녕하세요. 여러분 영상 편집 단가와 관련하여 궁금한 점이 있어 글을 남겨요.. 쇼츠 영상인데 이런 쇼츠는 보통 .. 얼마를 받아야할까요,...? 편집 강의만 하다가 의뢰가 들어오니 감이 안오네요...</p>
+                                            <p className='l'>경기/이천시</p>
                                         </div>
-                                        <div className="feed-footer">
-                                                <div className="span-wrap">
-                                                    <span className='span1'>0</span>
-                                                    <span className='span2'>2</span>
-                                                </div>
-                                                <span className='span3'>{item.writeDate}</span>
+                                    </div>
+                                    <div className="img-wrap">
+                                        <img src="http://localhost:3000/images/community/content/456c7f5d-ed2e-469c-a1fb-62bf31f52148.webp" alt="" />
+                                    </div>
+                                </div>
+
+                                <div className="feed-footer">
+                                        <div className="span-wrap">
+                                            <span className='span1'>0</span>
+                                            <span className='span2'>2</span>
                                         </div>
-                                    </Link>
-                            </li>
-                            )
-                        }) : <h2>로딩중....</h2>
-                        }
+                                        <span className='span3'>2분전</span>
+                                    </div>
+                            </Link>
+                        </li>
+                        <li className="feed">
+                            <a href="!#">
+                                <div className="wrap-wrap">
+                                    <div className="text-wrap">
+                                        <div className="feed-content">
+                                            <h4>얼마예요</h4>
+                                            <h3>쇼츠 영상 편집 단가에 대해...</h3>
+                                            <p className='c'> 안녕하세요. 여러분 영상 편집 단가와 관련하여 궁금한 점이 있어 글을 남겨요.. 쇼츠 영상인데 이런 쇼츠는 보통 .. 얼마를 받아야할까요,...? 편집 강의만 하다가 의뢰가 들어오니 감이 안오네요...</p>
+                                            <p className='l'>경기/이천시</p>
+                                        </div>
+                                    </div>
+                                    <div className="img-wrap">
+                                        <img src="http://localhost:3000/images/community/content/456c7f5d-ed2e-469c-a1fb-62bf31f52148.webp" alt="" />
+                                    </div>
+                                </div>
+
+                                <div className="feed-footer">
+                                        <div className="span-wrap">
+                                            <span className='span1'>0</span>
+                                            <span className='span2'>2</span>
+                                        </div>
+                                        <span className='span3'>2분전</span>
+                                    </div>
+                            </a>
+                        </li>
                     </ul>
             </div>
         </div>

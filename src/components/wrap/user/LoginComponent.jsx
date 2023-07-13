@@ -6,11 +6,14 @@ import { GlobalContext } from '../context/GlobalContext';
 import {useNavigate}  from 'react-router-dom';
 
 export default function LoginComponent({join}) {
+<<<<<<< HEAD
   
   const [login, setLogin] = React.useState({
     user_email: "",
     user_pw: "",
   });
+=======
+>>>>>>> 9376c189df93080edc33f3fccfbcd4a42f1527c7
 
   const [state, setState] = React.useState(join);
   const {confirmModalOpen} = React.useContext(ConfirmContext);
@@ -88,7 +91,11 @@ const onClickLog=(e)=>{
   else{
     axios({
       url:'/JSP/soomgo_user_signin_action.jsp',
+<<<<<<< HEAD
       method: 'POST', 
+=======
+      method: 'POST',
+>>>>>>> 9376c189df93080edc33f3fccfbcd4a42f1527c7
       data:{},
       params: {
           "user_email": state.email,
@@ -108,12 +115,19 @@ const onClickLog=(e)=>{
           else{
               confirmModalOpen('로그인 되었습니다!');   
               // 라우터 네비게이트 사용 구현
+<<<<<<< HEAD
               sessionStorage.setItem("loginEmail", login.user_email);
+=======
+>>>>>>> 9376c189df93080edc33f3fccfbcd4a42f1527c7
 
               let toDay = new Date();
               toDay.setDate(toDay.getDate()+3); // 로그인 3일 후 로그아웃 시간은 setHour getHour
               const obj = {
+<<<<<<< HEAD
                   user_email:state.email, 
+=======
+                  user_email:state.email,
+>>>>>>> 9376c189df93080edc33f3fccfbcd4a42f1527c7
                   expires: new Date().getTime()
               }
               localStorage.setItem('SOOMGOUSERLOGIN',JSON.stringify(obj));

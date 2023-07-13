@@ -2,7 +2,11 @@
     grid-area: header;
     height: 4.5rem; // 반응형 min-width 992px ~
     @include layout_gap;
+<<<<<<< HEAD
     @include align_center;
+=======
+    @include aline_center;
+>>>>>>> 9376c189df93080edc33f3fccfbcd4a42f1527c7
     border-bottom:0.0625rem solid #f3f3f3 ;
     .nav-bar__container{
         width: 100%;

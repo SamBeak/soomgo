@@ -202,6 +202,7 @@ const onClickNext = (e) => {
                 <div className="row2">
                     <div className="slide-contianer">
                       <div className="slide-view">
+<<<<<<< HEAD
                         <ul ref={slideWrap} className="slide-wrap">
                           <li className="slide slide01">
                             <a href="">
@@ -315,6 +316,18 @@ const onClickNext = (e) => {
                   </div>
                 </div>
               </div> */}
+=======
+                        <ul className="slide-wrap">
+                          <li className="slide slide01"></li>
+                          <li className="slide slide02"></li>
+                          <li className="slide slide03"></li>
+                          <li className="slide slide04"></li>
+                        </ul>
+                      </div>
+                    </div>
+                </div>
+              </div>
+>>>>>>> 9376c189df93080edc33f3fccfbcd4a42f1527c7
             </div>
           </div>
         </div>
