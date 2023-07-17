@@ -3,8 +3,12 @@ import './scss/c_write.scss';
 import $, { css } from 'jquery';
 import axios from 'axios';
 import { useSearchParams } from 'react-router-dom';
+import { ConfirmContext } from '../../context/ConfirmContext';
+import { GlobalContext } from '../../context/GlobalContext';
 
 export default function ComWriteComponent(){
+    const {confirmModalOpen,confirmModalClose,confirmMsg,isConfirmModal} = React.useContext(ConfirmContext);
+    const {signIn, setSignIn} = React.useContext(GlobalContext);
 
     const [state,setState]=React.useState({
         subject:'',
@@ -17,6 +21,9 @@ export default function ComWriteComponent(){
         content:'',
         writeDate:''
     });
+    const [login,setLogin]=React.useState({
+        user_email:''
+    })
     const {content,subject,title}=state;
 
     const [img,setImg]=React.useState({
@@ -29,6 +36,22 @@ export default function ComWriteComponent(){
     const ImgFile=useRef();
 
 
+    React.useEffect(() => {
+        const storedData = localStorage.getItem('SOOMGOUSERLOGIN');
+    
+        if (storedData) {
+          const { user_email } = JSON.parse(storedData);
+    
+          setLogin(prevLogin => ({
+            ...prevLogin,
+            user_email
+          }));
+        }
+      }, []);
+    
+      console.log(login.user_email);
+      
+    
    
     
     
@@ -122,7 +145,7 @@ export default function ComWriteComponent(){
 
         let formData = new URLSearchParams();   
 
-        formData.append("userId", "")
+        formData.append("userId", login.user_email)
         formData.append("subject",state.subject);
         formData.append("file1",state.file1);
         formData.append("file2",state.file2);
@@ -142,7 +165,8 @@ export default function ComWriteComponent(){
         })
         .then((res)=>{
             console.log(res.data);
-            alert('글 작성이 완료되었습니다.');
+            confirmModalOpen('글 작성이 완료되었습니다.');
+        
             window.location.href='/community'
         })
         .catch((err)=>{
@@ -204,8 +228,8 @@ export default function ComWriteComponent(){
 
     return (
         <div id='write'>
-            <div className="container">
-                    <div className="title">
+            <div className="container3">
+                    <div className="title3">
                         <div className="title-header">
                             <div className="select-box">
                                 

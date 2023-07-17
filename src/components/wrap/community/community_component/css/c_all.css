@@ -1,5 +1,6 @@
 #c-all {
   width: 600px;
+  padding: 0 0 120px 0;
 }
 #c-all .content {
   width: 100%;
@@ -227,7 +228,6 @@
 }
 #c-all .content .feed-list {
   width: 600px;
-  height: 194.91px;
 }
 #c-all .content .feed-list .feed {
   width: 100%;

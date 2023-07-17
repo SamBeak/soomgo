@@ -1,5 +1,6 @@
 #finding {
 	width: 100%;
+	padding: 0 0 120px 0;
   > .container {
 		width: 100%;
 		max-width: 60.625rem;
@@ -228,15 +229,15 @@
 		width: 100%;
 		.header-img-box {
 			position: absolute;
-			top: 100px;
+			top: 72px;
 			left: 0;
 			width: 100vw;
-			height: 187px;
+			height: 136px;
 			background: url() no-repeat 50% 50%;
 			background-size: cover;
 			&::after {
 			width: 100%;
-			height: 187px;
+			height: 136px;
 			content: "";
 			position: absolute;
 			display: inline-block;
@@ -244,7 +245,7 @@
 			}
 		}
 		.fake-box {
-			height: 187px;
+			height: 136px;
 			width: 100%;
 		}
 		> .container {
@@ -260,16 +261,16 @@
 					>.row1 {
 						width: 100%;
 						position: absolute;
-						top: -110px;
+						top: -80px;
 						.brand-img-box {
-							width: 165px;
-							height: 165px;
+							width: 120px;
+							height: 120px;
 							border-radius: 20px;
 							overflow: hidden;
 							border: 1px solid #ccc;
 							.img-border-gap {
-								width: 100%;
-								height: 100%;
+								width: 120px;
+								height: 120px;
 								background: url() no-repeat 50% 50%;
 								background-size: cover;
 							}
@@ -291,18 +292,18 @@
 										margin-bottom: 22px;
 									}
 									> h3 {
-										font-size: 30px;
+										font-size: 25px;
 										font-weight: 600;
 										margin-bottom: 15px;
 									}
 									> span {
-										font-size: 22px;
+										font-size: 16px;
 										font-weight: 600;
-										color: #333;
+										color: #323232;
 										img {}
 									}
 									> p {
-										font-size: 20px;
+										font-size:14px;
 										font-weight: 500;
 										color: #666;
 									}
@@ -438,7 +439,7 @@
 													}
 												}
 												span {
-													font-size: 24px;
+													font-size: 20px;
 													
 													line-height: 56px;
 													display: inline-block;
@@ -457,7 +458,7 @@
 													> span {
 														margin-top: 20px;
 														display: inline-block;
-														font-size: 20px;
+														font-size: 14px;
 														font-weight: 600;
 														color: #00c7ae;
 													}

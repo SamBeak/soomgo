@@ -1,11 +1,11 @@
 #wrap{
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    grid-template-areas:
-    'header'
-    'home'
-    'footer';
-    @include layout_gap;
+    // display: grid;
+    // grid-template-rows: auto 1fr auto;
+    // grid-template-areas:
+    // 'header'
+    // 'home'
+    // 'footer';
+    // @include layout_gap;
 }
 #header{
     grid-area: header;

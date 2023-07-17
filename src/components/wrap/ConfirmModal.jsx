@@ -9,6 +9,7 @@ const {confirmMsg,confirmModalClose} = React.useContext(ConfirmContext);
     const onClickConfirmModalClose=(e)=>{
         e.preventDefault();
         confirmModalClose(); // 닫기 메서드(함수)를 호출 실행 
+       
     }
 
     return (

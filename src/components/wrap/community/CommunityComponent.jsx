@@ -17,10 +17,6 @@ export default function CommunityComponent() {
          <Routes>
             <Route path='community/*' element={<CommunityHeaderComponent />}/>
                 <Route index element={<CommunityHeaderComponent/>}/>
-                <Route path='question' element={<CommunityQuestionComponent1/>}/>
-                <Route path='howMuch' element={<CommunityHowMuchComponent1/>}/>
-                <Route path='find' element={<CommunityFindComponent1/>}/>
-                <Route path='together' element={<CommunityTogetherComponent1/>}/>
                 <Route path='write' element={<ComWriteComponent/>}/>
                 <Route path='view' element={<ComViewListComponent/>}/>
                 <Route path='update' element={<ComUpdateComponent/>}/>

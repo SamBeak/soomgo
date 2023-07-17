@@ -2,40 +2,8 @@ import React from 'react'
 
 export default function ExpertJoinComponent() {
 
-  const slideWrap = React.useRef();
-  const [cnt, setCnt] = React.useState(0);
-  const [state, setState] = React.useState();
 
 
-// slide animation
-React.useEffect(() => {
-    if(cnt < 0){
-        slideWrap.current.style.transition = 'none';
-        slideWrap.current.style.transform = `translateX(-100%)`;
-        setCnt( - 1);
-    }
-    else if(cnt > 1 ){
-        slideWrap.current.style.transition = 'none';
-        slideWrap.current.style.transform = `translateX(0%)`;
-        setCnt(1);
-    }
-    else{
-        slideWrap.current.style.transition = 'all 0.5s ease-in-out';
-        slideWrap.current.style.transform = `translateX(* 100 %)`;
-    }
-}, [cnt]);
-
-
-// click prev
-const onClickPrev = (e) => {
-    e.preventDefault();
-    setCnt(cnt - 1);
-};
-// click next
-const onClickNext = (e) => {
-    e.preventDefault();
-    setCnt(cnt + 1);
-};
 
   return (
     <div id="expertJoin">
@@ -202,7 +170,7 @@ const onClickNext = (e) => {
                 <div className="row2">
                     <div className="slide-contianer">
                       <div className="slide-view">
-                        <ul ref={slideWrap} className="slide-wrap">
+                        <ul className="slide-wrap">
                           <li className="slide slide01">
                             <a href="">
                             <div className="content-box">

@@ -3,6 +3,8 @@
     margin-bottom: 5rem;
     .container{
         width: 100%;
+        max-width: 970px;
+        margin: 0 auto;
         .title{
             @include align_center;
             h2{

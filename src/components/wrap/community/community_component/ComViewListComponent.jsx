@@ -8,16 +8,21 @@ import { ConfirmContext } from '../../context/ConfirmContext';
 import { GlobalContext } from '../../context/GlobalContext';
 
 export default  function ComViewListComponent(){
+    const [login,setLogin]=React.useState({
+        user_email:''
+    })
     const {confirmModalOpen,confirmModalClose,confirmMsg,isConfirmModal} = React.useContext(ConfirmContext);
     const {signIn, setSignIn} = React.useContext(GlobalContext);
     const [state,setState]=React.useState({
         listData:[],
         viewList:[],
-        user_email:''
+        user_email:'',
+      
       
     })
     const [data, setData] = useState({
-        view:{}
+        view:{},
+        user_name:''
        
     });
     const {view,updata}=data;
@@ -30,23 +35,34 @@ export default  function ComViewListComponent(){
             let result = JSON.parse(localStorage.getItem('COMMUNITY'));
             setData({
                 ...data,
-                view: result[0]
+                view: result[0],
+                user_name:result[0].userId.split('@')[0]
             })
         }
     },[]);
 
-    // React.useEffect(()=>{
-    //     if(localStorage.getItem(signIn.user_email!=='')){
-    //         let result = JSON.parse(localStorage.getItem(signIn.signinKey));
-    //         setState({
-    //             ...state,
-    //             user_email:  
-    //         })
-    //         console.log(state.user_email);
-    //     }
-   
+    React.useEffect(() => {
+        const storedData = localStorage.getItem('SOOMGOUSERLOGIN');
+    
+        if (storedData) {
+          const { user_email } = JSON.parse(storedData);
+    
+          setLogin(prevLogin => ({
+            ...prevLogin,
+            user_email
+          }));
+        }
+      }, []);
+    
+      function reset() {
+        window.scrollTo(0, 0);
+      };
 
-    // },[signIn])
+    React.useEffect(()=>{
+        reset();
+    },[])
+
+
 
     const getList= async()=>{
         try {
@@ -60,9 +76,10 @@ export default  function ComViewListComponent(){
                 setState({
                     ...state,
                     listData:res.data.result
-                    
+                   
                 });
                 console.log(res);  
+                console.log(state.user_name);  
 
             })
             .catch((err)=>{
@@ -83,10 +100,46 @@ export default  function ComViewListComponent(){
         
     },[]);
 
+    
+
 
     const onClickUpdate=(e)=>{
         e.preventDefault();
-        window.location.href='/community/update';
+        if(login.user_email!==null){
+            let formData = new URLSearchParams();
+
+            formData.append("userId", login.user_email)
+
+            axios({
+                url:'/JSP/userEmailAction.jsp',
+                method:'POST',  
+                data:{},
+                params:formData
+            })
+            .then((res)=>{
+              
+                console.log(res.data.result);
+
+                if(res.data.result <= 0){
+                confirmModalOpen('본인만 수정가능합니다.');
+                //window.location.href='/community'
+                }
+                else if(res.data.result > 0){
+         
+                window.location.href='/community/update';                
+            }   
+           
+            })
+            .catch((err)=>{
+                console.log('AJAX 실패'+err);
+            })  
+        }
+       else{
+        confirmModalOpen('본인만 수정가능합니다.');
+    }
+
+        
+
 
 
 
@@ -95,11 +148,11 @@ export default  function ComViewListComponent(){
 
     const onClickDelete=(e)=>{
         e.preventDefault();
-        console.log(view.idx);
+       
 
-        if(signIn.user_email!==''){
+        if(login.user_email!==null){
             let formData = new URLSearchParams();
-            formData.append("idx", view.idx)
+            formData.append("userId", login.user_email)
             axios({
                 url:'/JSP/deleteAction.jsp',
                 method:'POST',  
@@ -108,11 +161,20 @@ export default  function ComViewListComponent(){
             })
             .then((res)=>{
                 console.log('AJAX 성공');
-                console.log(res);
-                alert('삭제되었습니다');
+                console.log(res.data.result);
+
+                if(res.data.result <= 0){
+                confirmModalOpen('본인만 삭제가능합니다.');
+                //window.location.href='/community'
+                }
+                else if(res.data.result > 0){
+                confirmModalOpen('삭제되었습니다');
                 window.location.href='/community'
+                }   
+           
             })
             .catch((err)=>{
+                alert('본인만 삭제가능합니다.');
                 console.log('AJAX 실패'+err);
             })  
         }
@@ -143,13 +205,24 @@ export default  function ComViewListComponent(){
                     <div className="header-row2">
                         <ul>
                             <li>
-                                <p>{view.service}</p>
+                                {
+                                view.service==="null" ? 
+                                    (<></>)
+                                    :
+                                    (<p>{view.service}</p>)
+                                }
+
                             </li>
                             <li> 
                                 <h3>{view.title}</h3>
                              </li>
                              <li>
-                                <h4>{view.location}</h4>
+                             {
+                                view.location==="null" ? 
+                                    (<></>)
+                                    :
+                                    (<p>{view.location}</p>)
+                                }
                             </li>
                         </ul>
                     </div>
@@ -160,7 +233,7 @@ export default  function ComViewListComponent(){
                             <img className='userimg' style={(view.file1==='undefined' ? {display:'none'}:{} )} src={view.file1} alt="" />
                         </div>
                         <div className="info" style={(view.file1==='undefined' ? {marginLeft:'-12px'}:{} )}>
-                            <h5>{signIn.user_email}</h5>
+                            <h5>{data.user_name}</h5>
                             <h4 >{view.writeDate}</h4>  
                         </div>
                     </div>

@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 export default function GosooComponent() {
   const param = useParams();
   const [gosooData, setGosooData] = useState();
+
   useEffect(() => {
     axios({
       url: "/data/finding/gosoo.json",
@@ -18,10 +19,12 @@ export default function GosooComponent() {
           if (item.id === intParam) {
             setGosooData(item);
           }
+          console.log(intParam)
         });
       }
     });
   }, [param]);
+
 
   if(gosooData!==undefined && gosooData !==null){
     return (        <div key={gosooData.id} id="gosoo">

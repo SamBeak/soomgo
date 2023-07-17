@@ -1,6 +1,9 @@
 #section7{
     margin-bottom: 5rem;
     .container{
+        
+        max-width: 970px;
+        margin: 0 auto;
         .title{
             @include align_center;
             justify-content: space-between;

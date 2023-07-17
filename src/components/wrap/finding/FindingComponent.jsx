@@ -8,7 +8,7 @@ export default function FindingComponent() {
     <div id="finding">
       <Routes>
       <Route path="" element={<FindingIndexComponent />} />
-              <Route path=":id" element={<GosooComponent />} />
+              <Route path="/:id" element={<GosooComponent />} />
               </Routes>
       <Outlet/>
     </div>

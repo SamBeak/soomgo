@@ -1,5 +1,6 @@
 #c-all{
     width: 600px;
+    padding: 0 0 120px 0 ;
     .content{
         width: 100%;
         position: relative;
@@ -245,7 +246,7 @@
         }
         .feed-list{
             width: 600px;
-            height: 194.91px;
+            //height: 194.91px;
             .feed{
                 width: 100%;
                 padding: 20px 8px;
@@ -288,8 +289,15 @@
                                     font-size: 12px;
                                     line-height: 18px;
                                     letter-spacing: -0.3px;
-                                    margin-bottom: 10px;
+                                    margin-bottom: 5px;
     
+                                }
+                                .user_id{
+                                    color: rgb(136, 136, 136);
+                                    font-size: 12px;
+                                    line-height: 18px;
+                                    letter-spacing: -0.3px;
+                                    margin-bottom: 10px;
                                 }
                             }
     
